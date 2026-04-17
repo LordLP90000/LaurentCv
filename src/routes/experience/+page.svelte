@@ -10,6 +10,6 @@
 	<meta name="description" content={`Berufliche Stationen von ${profile.name}.`} />
 </svelte:head>
 
-<div class="pt-24">
+<div class="pt-16 md:pt-20">
 	<Timeline />
 </div>

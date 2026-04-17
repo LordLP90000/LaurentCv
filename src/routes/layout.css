@@ -20,11 +20,11 @@
 	--color-ink-600: #2a2d3c;
 	--color-ink-700: #1c1e2a;
 	--color-ink-800: #14161f;
-	--color-ink-900: #0b0c12;
+	--color-ink-900: #3b133531;
 
 	--color-accent-400: #8ab4ff;
-	--color-accent-500: #4f74ff;
-	--color-accent-600: #3358ef;
+	--color-accent-500: #7F00FF;
+	--color-accent-600: #9D00FF;
 
 	--color-highlight: #7cf5c1;
 }
@@ -38,9 +38,9 @@
 	--text: var(--color-ink-800);
 	--text-muted: var(--color-ink-400);
 	--accent: var(--color-accent-600);
-	--accent-soft: rgba(79, 116, 255, 0.12);
-	--highlight: #13a27a;
-	--ring: rgba(79, 116, 255, 0.35);
+	--accent-soft: rgba(127, 0, 255, 0.12);
+	--highlight: #12aff2;
+	--ring: rgba(127, 0, 255, 0.35);
 }
 
 :root.dark {
@@ -48,13 +48,13 @@
 	--surface: var(--color-ink-900);
 	--surface-muted: var(--color-ink-800);
 	--surface-elevated: var(--color-ink-700);
-	--border: rgba(255, 255, 255, 0.08);
+	--border: rgba(118, 118, 118, 0.304);
 	--text: var(--color-ink-50);
 	--text-muted: var(--color-ink-300);
 	--accent: var(--color-accent-400);
-	--accent-soft: rgba(138, 180, 255, 0.12);
-	--highlight: var(--color-highlight);
-	--ring: rgba(138, 180, 255, 0.35);
+--accent-soft: rgba(127, 0, 255, 0.12);
+	--highlight: #9000ff;
+	--ring: rgba(127, 0, 255, 0.35);
 }
 
 html {
@@ -83,7 +83,7 @@ body::before {
 	pointer-events: none;
 	background:
 		radial-gradient(800px 400px at 10% -10%, var(--accent-soft), transparent 60%),
-		radial-gradient(600px 300px at 90% 10%, rgba(124, 245, 193, 0.08), transparent 60%);
+		radial-gradient(600px 300px at 90% 10%, rgba(97, 250, 184, 0.08), transparent 60%);
 }
 
 a {

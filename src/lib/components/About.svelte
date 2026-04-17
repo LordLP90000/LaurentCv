@@ -16,7 +16,7 @@
 	eyebrow="Über mich"
 	title="Zwei Ausbildungen, ein Ziel: verstehen, wie Dinge wirklich funktionieren."
 >
-	<div class="grid gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
+	<div class="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-16">
 		<div class="flex flex-col gap-6">
 			<div
 				class="relative inline-block self-start overflow-hidden rounded-2xl border"
@@ -26,7 +26,7 @@
 				<img
 					src="/profile.jpeg"
 					alt="Porträt von {profile.name}"
-					class="block h-auto max-h-120 w-auto"
+					class="block h-auto max-h-80 w-auto sm:max-h-96 md:max-h-120"
 					loading="lazy"
 					decoding="async"
 				/>
@@ -55,7 +55,7 @@
 
 			<div>
 				<h3 class="mb-3 text-sm font-semibold tracking-wider uppercase" style:color="var(--text-muted)">
-					Abseits des Bildschirms
+					Ausserhalb des Büros 
 				</h3>
 				<ul class="flex flex-wrap gap-2">
 					{#each hobbies as hobby (hobby)}

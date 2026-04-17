@@ -18,7 +18,7 @@
 			</span>
 		</div>
 
-		<nav class="flex items-center gap-4 text-sm" style:color="var(--text-muted)">
+		<nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm" style:color="var(--text-muted)">
 			{#each profile.social as s (s.href)}
 				<a href={s.href} class="hover:text-[var(--accent)] transition-colors">{s.label}</a>
 			{/each}

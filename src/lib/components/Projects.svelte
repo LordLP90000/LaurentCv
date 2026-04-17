@@ -26,7 +26,7 @@
 	<div class="grid gap-5 md:grid-cols-2">
 		{#each projects as project (project.id)}
 			<article
-				class="group flex flex-col gap-4 rounded-2xl border p-6 transition-transform hover:-translate-y-1"
+				class="group flex flex-col gap-4 rounded-2xl border p-5 transition-transform hover:-translate-y-1 sm:p-6"
 				style:border-color="var(--border)"
 				style:background="var(--surface-muted)"
 			>
@@ -35,7 +35,7 @@
 						<p class="mb-1 font-mono text-xs tracking-wider uppercase" style:color="var(--text-muted)">
 							{project.year}
 						</p>
-						<h3 class="text-xl font-semibold">{project.title}</h3>
+						<h3 class="text-lg font-semibold sm:text-xl">{project.title}</h3>
 					</div>
 					<span
 						class="shrink-0 rounded-full px-2.5 py-1 text-xs font-medium"

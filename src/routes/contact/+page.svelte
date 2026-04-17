@@ -12,6 +12,6 @@
 	<meta name="description" content={`Kontakt zu ${profile.name}.`} />
 </svelte:head>
 
-<div class="pt-24">
+<div class="pt-16 md:pt-20">
 	<Contact {form} />
 </div>

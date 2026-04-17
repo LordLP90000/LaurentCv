@@ -10,6 +10,6 @@
 	<meta name="description" content={`Projekte und Experimente von ${profile.name}.`} />
 </svelte:head>
 
-<div class="pt-24">
+<div class="pt-16 md:pt-20">
 	<Projects />
 </div>

@@ -10,6 +10,6 @@
 	<meta name="description" content={`Skills und Technologien von ${profile.name}.`} />
 </svelte:head>
 
-<div class="pt-24">
+<div class="pt-16 md:pt-20">
 	<Skills />
 </div>

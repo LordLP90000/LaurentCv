@@ -10,6 +10,6 @@
 	<meta name="description" content={`Über ${profile.name} — Informatiker in Ausbildung.`} />
 </svelte:head>
 
-<div class="pt-24">
+<div class="pt-16 md:pt-20">
 	<About />
 </div>

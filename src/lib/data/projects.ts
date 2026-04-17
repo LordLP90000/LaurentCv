@@ -17,21 +17,22 @@ export const projects: Project[] = [
 		description:
 			'Persönliche Portfolio-Seite als SvelteKit-Anwendung mit Node-Backend. Inhalte sind strukturiert in TypeScript-Datendateien abgelegt, sodass neue Abschnitte, Projekte und Skills ohne UI-Änderungen hinzugefügt werden können.',
 		stack: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Node.js'],
-		links: [{ label: 'Repository', href: 'https://github.com/' }],
+		links: [{ label: 'Repository', href: 'https://github.com/LordLP90000/LaurentCv' }],
+		status: 'in-progress',
+		year: '2026'
+	},
+	{
+		id: 'hudlscan',
+		title: 'HudlScan',
+		summary: 'Analyse-Tool für Hudl-Playbooks, um automatisch Spielzüge zu erkennen und zu kategorisieren.',
+		description:
+			'Analyse-Tool für Hudl-Playbooks, entwickelt als SvelteKit-Anwendung mit Node-Backend. Inhalte sind strukturiert in TypeScript-Datendateien abgelegt, sodass neue Funktionen und Analysen ohne UI-Änderungen hinzugefügt werden können.',
+		stack: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Node.js'],
+		links: [{ label: 'Repository', href: 'https://github.com/LordLP90000/HudlScan' }],
 		status: 'in-progress',
 		year: '2026'
 	},
 	
-	{
-		id: 'net-cli-toolkit',
-		title: '.NET CLI Toolkit',
-		summary: 'Kleine Kommandozeilen-Werkzeuge zur Automatisierung wiederkehrender Aufgaben.',
-		description:
-			'Sammlung von C#-basierten CLI-Tools für Log-Analyse, Netzwerk-Pings und Dateioperationen. Entstanden während der Informatik-Lehre, um Muster in .NET, System.CommandLine und Dependency Injection zu üben.',
-		stack: ['C#', '.NET', 'System.CommandLine'],
-		links: [{ label: 'Repository', href: 'https://github.com/' }],
-		status: 'in-progress',
-		year: '2026'
-	},
+
 	
 ];

@@ -18,12 +18,12 @@
 </script>
 
 <section
-	class="relative mx-auto flex min-h-[92vh] w-full max-w-6xl flex-col justify-center px-4 pt-32 pb-16 md:px-6"
+	class="relative mx-auto flex min-h-[85svh] w-full max-w-6xl flex-col justify-center px-4 pt-28 pb-12 md:min-h-[92vh] md:px-6 md:pt-32 md:pb-16"
 >
 	<p class="mb-4 text-sm font-medium tracking-[0.25em] uppercase" style:color="var(--accent)">
 		Hi, ich bin
 	</p>
-	<h1 class="text-5xl font-semibold tracking-tight md:text-7xl">
+	<h1 class="text-4xl font-semibold tracking-tight sm:text-5xl md:text-7xl">
 		{profile.name.split(' ')[0]}
 		<span
 			class="bg-clip-text text-transparent"
@@ -34,7 +34,7 @@
 	</h1>
 
 	<p
-		class="mt-6 max-w-2xl text-lg md:text-xl"
+		class="mt-6 max-w-2xl text-base sm:text-lg md:text-xl"
 		style:color="var(--text-muted)"
 	>
 		{profile.title}

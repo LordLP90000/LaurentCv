@@ -18,7 +18,7 @@
 	title="Lass uns reden."
 	lead="Ob Praktikum, Security-Projekt oder ein Austausch über Schnittstellen — schreib mir."
 >
-	<div class="grid gap-10 md:grid-cols-[1fr_1fr]">
+	<div class="grid gap-8 md:grid-cols-[1fr_1fr] md:gap-10">
 		<div class="flex flex-col gap-4">
 			<a
 				href="mailto:{profile.email}"
@@ -88,7 +88,7 @@
 					submitting = false;
 				};
 			}}
-			class="flex flex-col gap-4 rounded-2xl border p-6"
+			class="flex flex-col gap-4 rounded-2xl border p-5 sm:p-6"
 			style:border-color="var(--border)"
 			style:background="var(--surface-muted)"
 		>
@@ -101,7 +101,7 @@
 						required
 						minlength="2"
 						value={form?.values?.name ?? ''}
-						class="rounded-md border px-3 py-2 text-sm"
+						class="rounded-md border px-3 py-2 text-base sm:text-sm"
 						style:border-color="var(--border)"
 						style:background="var(--surface)"
 					/>
@@ -113,7 +113,7 @@
 						name="email"
 						required
 						value={form?.values?.email ?? ''}
-						class="rounded-md border px-3 py-2 text-sm"
+						class="rounded-md border px-3 py-2 text-base sm:text-sm"
 						style:border-color="var(--border)"
 						style:background="var(--surface)"
 					/>
@@ -127,7 +127,7 @@
 					required
 					minlength="10"
 					rows="5"
-					class="resize-y rounded-md border px-3 py-2 text-sm"
+					class="resize-y rounded-md border px-3 py-2 text-base sm:text-sm"
 					style:border-color="var(--border)"
 					style:background="var(--surface)">{form?.values?.message ?? ''}</textarea>
 			</label>

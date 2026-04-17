@@ -13,12 +13,12 @@
 	title="Vom Schaltschrank zur Shell."
 	lead="Erstausbildung zum Elektroinstallateur EFZ, jetzt Zweitausbildung zum Informatiker — Hardware-Intuition trifft Software-Engineering."
 >
-	<ol class="relative ml-3 flex flex-col gap-10 border-l pl-8" style:border-color="var(--border)">
+	<ol class="relative ml-2 flex flex-col gap-8 border-l pl-5 sm:ml-3 sm:gap-10 sm:pl-8" style:border-color="var(--border)">
 		{#each experience as entry (entry.id)}
 			{@const isOpen = open[entry.id]}
 			<li class="relative">
 				<span
-					class="absolute top-2 -left-[41px] flex h-5 w-5 items-center justify-center rounded-full border-2"
+					class="absolute top-2 -left-7.5 flex h-5 w-5 items-center justify-center rounded-full border-2 sm:-left-10.25"
 					style:border-color="var(--accent)"
 					style:background="var(--surface)"
 				>
@@ -26,7 +26,7 @@
 				</span>
 
 				<div
-					class="rounded-xl border p-5 transition-colors"
+					class="rounded-xl border p-4 transition-colors sm:p-5"
 					style:border-color="var(--border)"
 					style:background="var(--surface-muted)"
 				>

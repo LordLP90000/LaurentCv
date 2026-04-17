@@ -22,11 +22,8 @@
 		return () => window.removeEventListener('scroll', onScroll);
 	});
 
-	const initials = profile.name
-		.split(' ')
-		.map((part: string) => part[0])
-		.slice(0, 2)
-		.join('');
+	const nameParts = profile.name.split(' ');
+	const initials = (nameParts[0]?.[0] ?? '') + (nameParts[nameParts.length - 1]?.[0] ?? '');
 </script>
 
 <header
@@ -89,10 +86,10 @@
 		>
 			<ul class="mx-auto flex max-w-6xl flex-col px-4 py-2">
 				{#each primaryNav as item (item.label)}
-					<li>
+					<li class="border-b last:border-b-0" style:border-color="var(--border)">
 						<a
 							href={href(item)}
-							class="block rounded-md px-2 py-3 text-sm"
+							class="block rounded-md px-2 py-4 text-base"
 							style:color="var(--text)"
 							onclick={() => (open = false)}
 						>
