@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { profile } from '$data/profile';
+	import { resolve } from '$app/paths';
 
 	let index = $state(0);
 	let visible = $state(true);
@@ -52,15 +53,15 @@
 
 	<div class="mt-12 flex flex-wrap gap-3">
 		<a
-			href="#contact"
-			class="rounded-lg px-5 py-3 text-sm font-medium text-white shadow-lg shadow-[var(--ring)] transition-transform hover:-translate-y-0.5"
+			href={resolve('/contact')}
+			class="rounded-lg px-5 py-3 text-sm font-medium text-white shadow-(--ring) transition-transform hover:-translate-y-0.5"
 			style:background="var(--accent)"
 		>
 			Kontakt aufnehmen
 		</a>
 		<a
-			href="#projects"
-			class="rounded-lg border px-5 py-3 text-sm font-medium transition-colors hover:text-[var(--accent)]"
+			href={resolve('/projects')}
+			class="rounded-lg border px-5 py-3 text-sm font-medium transition-colors hover:text-(--accent)"
 			style:border-color="var(--border)"
 		>
 			Projekte ansehen

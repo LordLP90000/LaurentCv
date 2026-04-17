@@ -1,14 +1,6 @@
 <script lang="ts">
 	import Hero from '$components/Hero.svelte';
-	import About from '$components/About.svelte';
-	import Timeline from '$components/Timeline.svelte';
-	import Skills from '$components/Skills.svelte';
-	import Projects from '$components/Projects.svelte';
-	import Education from '$components/Education.svelte';
-	import Contact from '$components/Contact.svelte';
 	import { profile } from '$data/profile';
-
-	let { form } = $props();
 
 	const title = `${profile.name} · ${profile.title}`;
 	const description = `Personal CV & Tech Lab von ${profile.name}. Informatiker in Ausbildung mit Fokus auf Security, Schnittstellen und saubere Software.`;
@@ -27,9 +19,3 @@
 </svelte:head>
 
 <Hero />
-<About />
-<Timeline />
-<Skills />
-<Projects />
-<Education />
-<Contact {form} />

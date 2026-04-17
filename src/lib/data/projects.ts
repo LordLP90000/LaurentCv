@@ -21,17 +21,7 @@ export const projects: Project[] = [
 		status: 'in-progress',
 		year: '2026'
 	},
-	{
-		id: 'siemens-logo-hausautomation',
-		title: 'Siemens Logo Hausautomation',
-		summary: 'Steuerung für Licht, Rollladen und Heizung während der Elektriker-Lehre.',
-		description:
-			'Während meiner Erstausbildung habe ich mehrere Siemens Logo Programme für kleine Automationen geschrieben — inklusive Zeitschaltlogik, Sensorik und einer Bedienlogik, die ohne Cloud auskommt.',
-		stack: ['Siemens Logo', 'SPS', 'LOGO!Soft Comfort'],
-		links: [],
-		status: 'archived',
-		year: '2024'
-	},
+	
 	{
 		id: 'net-cli-toolkit',
 		title: '.NET CLI Toolkit',
@@ -43,15 +33,5 @@ export const projects: Project[] = [
 		status: 'in-progress',
 		year: '2026'
 	},
-	{
-		id: 'home-lab-security',
-		title: 'Home Lab · Security',
-		summary: 'Privates Lab für Vulnerability Scanning und Netzwerk-Monitoring.',
-		description:
-			'Virtualisiertes Home-Lab mit segmentierten Netzen, einer pfSense-Firewall und Tools wie OpenVAS und Wireshark. Ziel ist, Security-Konzepte (Zero Trust, Logging, Scanning) praktisch zu erproben.',
-		stack: ['pfSense', 'OpenVAS', 'Wireshark', 'Linux'],
-		links: [],
-		status: 'concept',
-		year: '2026'
-	}
+	
 ];

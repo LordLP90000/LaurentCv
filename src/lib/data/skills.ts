@@ -58,7 +58,8 @@ export const skillCategories: SkillCategory[] = [
 			{ name: 'GitHub', level: 3 },
 			{ name: 'Azure DevOps', level: 1 },
 			{ name: 'VS Code', level: 3 },
-			{ name: 'Visual Studio', level: 3 }
+			{ name: 'Visual Studio', level: 3 },
+			{ name: 'AI Prompting', level: 4 }
 		]
 	},
 	{

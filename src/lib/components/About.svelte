@@ -19,25 +19,17 @@
 	<div class="grid gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
 		<div class="flex flex-col gap-6">
 			<div
-				class="relative aspect-square overflow-hidden rounded-2xl border"
+				class="relative inline-block self-start overflow-hidden rounded-2xl border"
 				style:border-color="var(--border)"
 				style:background="var(--surface-muted)"
 			>
-				<div
-					class="flex h-full w-full items-center justify-center text-6xl font-semibold"
-					style:background="linear-gradient(135deg, var(--accent-soft), transparent)"
-					style:color="var(--accent)"
-					aria-hidden="true"
-				>
-					LS
-				</div>
-				<span class="absolute bottom-3 left-3 rounded-md border px-2 py-1 text-xs"
-					style:border-color="var(--border)"
-					style:background="var(--surface-elevated)"
-					style:color="var(--text-muted)"
-				>
-					Foto folgt
-				</span>
+				<img
+					src="/profile.jpeg"
+					alt="Porträt von {profile.name}"
+					class="block h-auto max-h-120 w-auto"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 
 			<dl class="grid grid-cols-2 gap-3 text-sm">
