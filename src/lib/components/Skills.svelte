@@ -81,7 +81,7 @@
 
 		<div>
 			<h3 class="mb-4 text-sm font-semibold tracking-wider uppercase" style:color="var(--text-muted)">
-				Wunschbereiche
+				Interessenschwerpunkte
 			</h3>
 			<ul class="flex flex-col gap-3">
 				{#each interestAreas as area (area.priority)}
