@@ -87,8 +87,8 @@ export const skillCategories: SkillCategory[] = [
 		]
 	},
 	{
-		id: 'soft',
-		title: 'Soft Skills',
+		id: 'workplace',
+		title: 'Workplace Skills',
 		description: 'Arbeitsweise und Kollaboration.',
 		skills: [
 			{ name: 'Teamarbeit', level: 4 },
