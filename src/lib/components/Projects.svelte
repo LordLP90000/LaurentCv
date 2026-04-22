@@ -23,10 +23,10 @@
 	title="Projekte — meine Werkstatt."
 	lead="Kein poliertes Portfolio-Grid, sondern die Werkbank: Dinge, an denen ich gerade arbeite oder die mich geprägt haben."
 >
-	<div class="grid gap-5 md:grid-cols-2">
+	<div class="grid gap-5 md:grid-cols-2" data-reveal-group data-reveal-step="90">
 		{#each projects as project (project.id)}
 			<article
-				class="group flex flex-col gap-4 rounded-2xl border p-5 transition-transform hover:-translate-y-1 sm:p-6"
+				class="tilt-card group flex flex-col gap-4 rounded-2xl border p-5 sm:p-6"
 				style:border-color="var(--border)"
 				style:background="var(--surface-muted)"
 			>

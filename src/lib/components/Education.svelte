@@ -15,10 +15,10 @@
 	title="Ausbildung & Zertifikate."
 	lead="Zwei Lehren, Wirtschaftsmittelschule und ein Sprachzertifikat."
 >
-	<ul class="flex flex-col gap-3">
+	<ul class="flex flex-col gap-3" data-reveal-group data-reveal-step="70">
 		{#each education as item (item.id)}
 			<li
-				class="flex flex-col gap-3 rounded-xl border p-5 md:flex-row md:items-center md:justify-between"
+				class="tilt-card flex flex-col gap-3 rounded-xl border p-5 md:flex-row md:items-center md:justify-between"
 				style:border-color="var(--border)"
 				style:background="var(--surface-muted)"
 			>

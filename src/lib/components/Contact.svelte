@@ -19,10 +19,10 @@
 	lead="Ob Praktikum, Security-Projekt oder ein Austausch über Schnittstellen — schreib mir."
 >
 	<div class="grid gap-8 md:grid-cols-[1fr_1fr] md:gap-10">
-		<div class="flex flex-col gap-4">
+		<div class="flex flex-col gap-4" data-reveal-group data-reveal-step="80">
 			<a
 				href="mailto:{profile.email}"
-				class="group flex items-center gap-4 rounded-xl border p-4 transition-colors hover:text-[var(--accent)]"
+				class="tilt-card group flex items-center gap-4 rounded-xl border p-4 hover:text-[var(--accent)]"
 				style:border-color="var(--border)"
 				style:background="var(--surface-muted)"
 			>
@@ -44,7 +44,7 @@
 
 			<a
 				href="tel:{profile.phone.replace(/\s/g, '')}"
-				class="group flex items-center gap-4 rounded-xl border p-4 transition-colors hover:text-[var(--accent)]"
+				class="tilt-card group flex items-center gap-4 rounded-xl border p-4 hover:text-[var(--accent)]"
 				style:border-color="var(--border)"
 				style:background="var(--surface-muted)"
 			>

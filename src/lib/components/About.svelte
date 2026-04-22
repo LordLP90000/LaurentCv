@@ -32,10 +32,10 @@
 				/>
 			</div>
 
-			<dl class="grid grid-cols-2 gap-3 text-sm">
+			<dl class="grid grid-cols-2 gap-3 text-sm" data-reveal-group data-reveal-step="80">
 				{#each facts as f (f.label)}
 					<div
-						class="rounded-lg border p-3"
+						class="tilt-card rounded-lg border p-3"
 						style:border-color="var(--border)"
 						style:background="var(--surface-muted)"
 					>
