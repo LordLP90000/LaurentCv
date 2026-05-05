@@ -25,7 +25,12 @@ export const actions: Actions = {
 		}
 
 		if (!env.SENDWITH_API_KEY || !env.CONTACT_TO_EMAIL || !env.CONTACT_FROM_EMAIL) {
-			console.error('[contact] missing SENDWITH_API_KEY, CONTACT_TO_EMAIL or CONTACT_FROM_EMAIL env var');
+			console.error('[contact] missing env var', {
+				SENDWITH_API_KEY: !!env.SENDWITH_API_KEY,
+				CONTACT_TO_EMAIL: !!env.CONTACT_TO_EMAIL,
+				CONTACT_FROM_EMAIL: !!env.CONTACT_FROM_EMAIL,
+				availableKeys: Object.keys(env).filter((k) => k.includes('SEND') || k.includes('CONTACT'))
+			});
 			return fail(500, { error: 'Der Server ist nicht korrekt konfiguriert.', values });
 		}
 
