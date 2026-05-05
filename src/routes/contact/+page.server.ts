@@ -1,6 +1,6 @@
 import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
-import { RESEND_API_KEY, CONTACT_TO_EMAIL } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { Resend } from 'resend';
 
 const MESSAGE_MIN = 10;
@@ -25,10 +25,15 @@ export const actions: Actions = {
 			return fail(400, { error: 'Die Nachricht ist zu kurz.', values });
 		}
 
-		const resend = new Resend(RESEND_API_KEY);
+		if (!env.RESEND_API_KEY || !env.CONTACT_TO_EMAIL) {
+			console.error('[contact] missing RESEND_API_KEY or CONTACT_TO_EMAIL env var');
+			return fail(500, { error: 'Der Server ist nicht korrekt konfiguriert.', values });
+		}
+
+		const resend = new Resend(env.RESEND_API_KEY);
 		const { error: sendError } = await resend.emails.send({
 			from: 'Kontaktformular <onboarding@resend.dev>',
-			to: CONTACT_TO_EMAIL,
+			to: env.CONTACT_TO_EMAIL,
 			replyTo: email,
 			subject: `Neue Kontaktanfrage von ${name}`,
 			text: `Name: ${name}\nE-Mail: ${email}\n\n${message}`
