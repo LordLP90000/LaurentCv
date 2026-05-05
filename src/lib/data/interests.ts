@@ -17,8 +17,8 @@ export const interestAreas: InterestArea[] = [
 		priority: 2,
 		title: 'Schnittstellen',
 		description:
-			'OPC UA, MIKO, REST — wie Systeme und Maschinen kommunizieren. Durch meinen Hintergrund als Elektriker verstehe ich die Hardware-Seite und möchte das auf der Software-Seite vertiefen.',
-		tags: ['OPC UA', 'REST', 'MIKO', 'Integration']
+			'OPC UA, REST — wie Systeme und Maschinen kommunizieren. Durch meinen Hintergrund als Elektriker verstehe ich die Hardware-Seite und möchte das auf der Software-Seite vertiefen.',
+		tags: ['OPC UA', 'REST', 'Integration']
 	},
 	{
 		priority: 3,

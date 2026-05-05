@@ -9,8 +9,8 @@ export interface Education {
 
 export const education: Education[] = [
 	{
-		id: 'komax-informatiker',
-		title: 'Informatiker EFZ (Zweitausbildung)',
+		id: 'komax-applikationsentwickler',
+		title: 'Applikationsentwickler EFZ (Zweitausbildung)',
 		institution: 'Komax AG · Berufsschule',
 		period: '2025 – laufend',
 		description: 'Zweitausbildung, aktuell im zweiten Lehrjahr.',

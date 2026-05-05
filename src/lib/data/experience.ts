@@ -13,15 +13,15 @@ export interface Experience {
 
 export const experience: Experience[] = [
 	{
-		id: 'komax-informatiker',
-		role: 'Lernender Informatiker (Zweitausbildung)',
+		id: 'komax-applikationsentwickler',
+		role: 'Lernender Applikationsentwickler (Zweitausbildung)',
 		company: 'Komax AG',
 		period: '2025 – heute',
 		start: '2025',
 		end: 'heute',
 		location: 'Dierikon, Schweiz',
 		summary:
-			'Zweitausbildung zum Informatiker EFZ nach abgeschlossener Lehre als Elektroinstallateur. Aktuell im zweiten Lehrjahr.',
+			'Zweitausbildung zum Applikationsentwickler EFZ nach abgeschlossener Lehre als Elektroinstallateur. Aktuell im zweiten Lehrjahr.',
 		highlights: [
 			'Arbeit in diversen Programmiersprachen und Technologien',
 			'Einblick in Schnittstellen, Frontend-Entwicklung und Security',
