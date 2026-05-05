@@ -1,7 +1,6 @@
 import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
-import { Resend } from 'resend';
 
 const MESSAGE_MIN = 10;
 const NAME_MIN = 2;
@@ -25,22 +24,31 @@ export const actions: Actions = {
 			return fail(400, { error: 'Die Nachricht ist zu kurz.', values });
 		}
 
-		if (!env.RESEND_API_KEY || !env.CONTACT_TO_EMAIL) {
-			console.error('[contact] missing RESEND_API_KEY or CONTACT_TO_EMAIL env var');
+		if (!env.SENDWITH_API_KEY || !env.CONTACT_TO_EMAIL || !env.CONTACT_FROM_EMAIL) {
+			console.error('[contact] missing SENDWITH_API_KEY, CONTACT_TO_EMAIL or CONTACT_FROM_EMAIL env var');
 			return fail(500, { error: 'Der Server ist nicht korrekt konfiguriert.', values });
 		}
 
-		const resend = new Resend(env.RESEND_API_KEY);
-		const { error: sendError } = await resend.emails.send({
-			from: 'Kontaktformular <onboarding@resend.dev>',
-			to: env.CONTACT_TO_EMAIL,
-			replyTo: email,
-			subject: `Neue Kontaktanfrage von ${name}`,
-			text: `Name: ${name}\nE-Mail: ${email}\n\n${message}`
+		const response = await fetch('https://app.sendwith.email/api/send', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${env.SENDWITH_API_KEY}`
+			},
+			body: JSON.stringify({
+				message: {
+					to: [{ email: env.CONTACT_TO_EMAIL }],
+					from: { email: env.CONTACT_FROM_EMAIL },
+					replyTo: [{ email }],
+					subject: `Neue Kontaktanfrage von ${name}`,
+					body: `Name: ${name}\nE-Mail: ${email}\n\n${message}`
+				}
+			})
 		});
 
-		if (sendError) {
-			console.error('[contact] send error', sendError);
+		if (!response.ok) {
+			const errorBody = await response.text().catch(() => '');
+			console.error('[contact] send error', response.status, errorBody);
 			return fail(500, { error: 'Die Nachricht konnte nicht gesendet werden. Bitte versuche es später erneut.', values });
 		}
 
