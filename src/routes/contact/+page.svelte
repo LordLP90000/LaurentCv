@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Contact from '$components/Contact.svelte';
+	import Faq from '$components/Faq.svelte';
 	import Seo from '$components/Seo.svelte';
 	import Breadcrumbs from '$components/Breadcrumbs.svelte';
 	import RelatedLinks from '$components/RelatedLinks.svelte';
@@ -15,6 +16,7 @@
 <div class="pt-16 md:pt-20">
 	<Breadcrumbs label="Kontakt" />
 	<Contact {form} />
+	<Faq />
 	<RelatedLinks
 		links={[
 			{

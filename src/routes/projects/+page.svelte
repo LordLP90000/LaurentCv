@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Projects from '$components/Projects.svelte';
+	import CaseStudies from '$components/CaseStudies.svelte';
 	import Seo from '$components/Seo.svelte';
 	import Breadcrumbs from '$components/Breadcrumbs.svelte';
 	import RelatedLinks from '$components/RelatedLinks.svelte';
@@ -13,6 +14,7 @@
 <div class="pt-16 md:pt-20">
 	<Breadcrumbs label="Projekte" />
 	<Projects />
+	<CaseStudies />
 	<RelatedLinks
 		links={[
 			{

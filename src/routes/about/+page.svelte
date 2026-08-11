@@ -1,5 +1,6 @@
 <script lang="ts">
 	import About from '$components/About.svelte';
+	import Testimonials from '$components/Testimonials.svelte';
 	import Seo from '$components/Seo.svelte';
 	import Breadcrumbs from '$components/Breadcrumbs.svelte';
 	import RelatedLinks from '$components/RelatedLinks.svelte';
@@ -13,6 +14,7 @@
 <div class="pt-16 md:pt-20">
 	<Breadcrumbs label="Über mich" />
 	<About />
+	<Testimonials />
 	<RelatedLinks
 		links={[
 			{
