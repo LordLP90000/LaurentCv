@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Section from '$components/Section.svelte';
 	import Seo from '$components/Seo.svelte';
+	import Breadcrumbs from '$components/Breadcrumbs.svelte';
+	import RelatedLinks from '$components/RelatedLinks.svelte';
 
 	interface Note {
 		slug: string;
@@ -34,7 +36,8 @@
 	description="Kurze Write-ups und Notizen von Laurent Scherrer: vom Schaltschrank zur Shell, Security als Einsteiger und weitere Themen, mit denen ich mich gerade beschäftige."
 />
 
-<div class="pt-28 md:pt-32">
+<div class="pt-16 md:pt-20">
+	<Breadcrumbs label="Notes" />
 	<Section
 		id="notes"
 		eyebrow="Notes"
@@ -64,4 +67,18 @@
 			{/each}
 		</ul>
 	</Section>
+	<RelatedLinks
+		links={[
+			{
+				route: '/lab',
+				label: 'Tech Lab',
+				description: 'Die Experimente hinter den Write-ups.'
+			},
+			{
+				route: '/contact',
+				label: 'Kontakt',
+				description: 'Fragen oder Feedback zu einem Thema? Schreib mir.'
+			}
+		]}
+	/>
 </div>

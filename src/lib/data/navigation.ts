@@ -9,7 +9,8 @@ export interface NavItem {
 		| '/education'
 		| '/contact'
 		| '/lab'
-		| '/notes';
+		| '/notes'
+		| '/datenschutz';
 	hash?: string;
 }
 

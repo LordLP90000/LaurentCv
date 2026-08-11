@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { profile } from '$data/profile';
+	import { resolve } from '$app/paths';
 	const year = new Date().getFullYear();
 </script>
 
@@ -27,8 +28,12 @@
 			{/each}
 		</nav>
 
-		<span class="text-xs" style:color="var(--text-muted)">
-			© {year} · Built with SvelteKit
+		<span class="flex flex-wrap items-center gap-x-3 text-xs" style:color="var(--text-muted)">
+			<a href={resolve('/datenschutz')} class="transition-colors hover:text-[var(--accent)]">
+				Datenschutz
+			</a>
+			<span aria-hidden="true">·</span>
+			<span>© {year} · Built with SvelteKit</span>
 		</span>
 	</div>
 </footer>

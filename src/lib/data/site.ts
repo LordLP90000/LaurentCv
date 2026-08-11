@@ -17,7 +17,8 @@ export const publicPages: PublicPage[] = [
 	{ path: '/education', priority: 0.7 },
 	{ path: '/lab', priority: 0.5 },
 	{ path: '/notes', priority: 0.5 },
-	{ path: '/contact', priority: 0.9 }
+	{ path: '/contact', priority: 0.9 },
+	{ path: '/datenschutz', priority: 0.3 }
 ];
 
 /** Paths that exist but must not be crawled or indexed. */

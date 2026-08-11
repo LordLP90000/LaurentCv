@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Section from '$components/Section.svelte';
 	import Seo from '$components/Seo.svelte';
+	import Breadcrumbs from '$components/Breadcrumbs.svelte';
+	import RelatedLinks from '$components/RelatedLinks.svelte';
 
 	const experiments = [
 		{
@@ -29,7 +31,8 @@
 	description="Tech Lab: Experimente zu Security-Sandboxes, OPC UA und Industrie-UIs — Prototypen und Skizzen, die zeigen, woran ich gerade tüftle und was als Nächstes kommt."
 />
 
-<div class="pt-28 md:pt-32">
+<div class="pt-16 md:pt-20">
+	<Breadcrumbs label="Lab" />
 	<Section
 		id="lab"
 		eyebrow="Tech Lab"
@@ -61,4 +64,18 @@
 			UI-Refactoring nötig.
 		</p>
 	</Section>
+	<RelatedLinks
+		links={[
+			{
+				route: '/projects',
+				label: 'Projekte',
+				description: 'Die fertigeren Sachen — Projekte mit Stack, Status und Links.'
+			},
+			{
+				route: '/notes',
+				label: 'Notes',
+				description: 'Kurze Write-ups zu Themen, die mich gerade beschäftigen.'
+			}
+		]}
+	/>
 </div>
