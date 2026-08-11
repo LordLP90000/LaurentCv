@@ -23,3 +23,9 @@ export const publicPages: PublicPage[] = [
 
 /** Paths that exist but must not be crawled or indexed. */
 export const privatePaths = ['/api/', '/danke'];
+
+/**
+ * Response-time promise shown next to every contact CTA and form.
+ * [X] is a placeholder — replace with the real window, e.g. "24 Stunden" or "2 Werktagen".
+ */
+export const responseTimePromise = 'Ich antworte innerhalb von [X].';

@@ -1,5 +1,5 @@
 import type { Actions } from './$types';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 
 const MESSAGE_MIN = 10;
@@ -60,6 +60,6 @@ export const actions: Actions = {
 			});
 		}
 
-		return { success: true, values: { name: '', email: '', message: '' } };
+		redirect(303, '/danke');
 	}
 };

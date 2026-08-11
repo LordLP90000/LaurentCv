@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { profile } from '$data/profile';
 	import Section from './Section.svelte';
+	import ResponsePromise from './ResponsePromise.svelte';
 	import { enhance } from '$app/forms';
 
 	interface Props {
@@ -159,15 +160,7 @@
 				>
 			</label>
 
-			{#if form?.success}
-				<p
-					class="rounded-md border px-3 py-2 text-sm"
-					style:border-color="var(--highlight)"
-					style:color="var(--highlight)"
-				>
-					Danke! Deine Nachricht ist angekommen — ich melde mich bald.
-				</p>
-			{:else if form?.error}
+			{#if form?.error}
 				<p
 					class="rounded-md border px-3 py-2 text-sm"
 					style:border-color="#f87171"
@@ -185,6 +178,8 @@
 			>
 				{submitting ? 'Senden …' : 'Nachricht senden'}
 			</button>
+
+			<ResponsePromise />
 		</form>
 	</div>
 </Section>

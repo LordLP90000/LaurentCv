@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from '$components/Header.svelte';
 	import Footer from '$components/Footer.svelte';
+	import StickyCta from '$components/StickyCta.svelte';
 	import { reveal } from '$lib/actions/reveal';
 	import './layout.css';
 
@@ -49,3 +50,4 @@
 	{@render children()}
 </main>
 <Footer />
+<StickyCta />

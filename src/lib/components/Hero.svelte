@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { profile } from '$data/profile';
 	import { resolve } from '$app/paths';
+	import ResponsePromise from './ResponsePromise.svelte';
 
 	let index = $state(0);
 	let visible = $state(true);
@@ -64,6 +65,10 @@
 		>
 			Projekte ansehen
 		</a>
+	</div>
+
+	<div class="mt-4">
+		<ResponsePromise />
 	</div>
 
 	<div
