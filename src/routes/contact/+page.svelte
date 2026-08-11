@@ -1,16 +1,14 @@
 <script lang="ts">
 	import Contact from '$components/Contact.svelte';
-	import { profile } from '$data/profile';
+	import Seo from '$components/Seo.svelte';
 
 	let { form } = $props();
-
-	const title = `Kontakt · ${profile.name}`;
 </script>
 
-<svelte:head>
-	<title>{title}</title>
-	<meta name="description" content={`Kontakt zu ${profile.name}.`} />
-</svelte:head>
+<Seo
+	title="Kontakt · Laurent Scherrer, Informatiker in Ausbildung"
+	description="Nimm Kontakt auf — per Formular, E-Mail oder Telefon. Ob Security-Projekt, Tech-Austausch oder Zusammenarbeit: Ich freue mich auf deine Nachricht."
+/>
 
 <div class="pt-16 md:pt-20">
 	<Contact {form} />

@@ -30,11 +30,7 @@
 
 	<p class="mb-6 text-sm" style:color="var(--text-muted)">{current.description}</p>
 
-	<div
-		class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
-		data-reveal-group
-		data-reveal-step="55"
-	>
+	<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group data-reveal-step="55">
 		{#each current.skills as skill (skill.name)}
 			<div
 				class="tilt-card group flex flex-col gap-3 rounded-xl border p-4"
@@ -66,7 +62,10 @@
 
 	<div class="mt-16 grid gap-8 md:grid-cols-2">
 		<div>
-			<h3 class="mb-4 text-sm font-semibold tracking-wider uppercase" style:color="var(--text-muted)">
+			<h3
+				class="mb-4 text-sm font-semibold tracking-wider uppercase"
+				style:color="var(--text-muted)"
+			>
 				Sprachen
 			</h3>
 			<ul class="flex flex-col gap-2" data-reveal-group data-reveal-step="50">
@@ -84,7 +83,10 @@
 		</div>
 
 		<div>
-			<h3 class="mb-4 text-sm font-semibold tracking-wider uppercase" style:color="var(--text-muted)">
+			<h3
+				class="mb-4 text-sm font-semibold tracking-wider uppercase"
+				style:color="var(--text-muted)"
+			>
 				Interessenschwerpunkte
 			</h3>
 			<ul class="flex flex-col gap-3" data-reveal-group data-reveal-step="60">

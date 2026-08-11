@@ -1,7 +1,5 @@
 {
-  "permissions": {
-    "allow": [
-      "WebFetch(domain:www.thinkgrow.ch)"
-    ]
-  }
+	"permissions": {
+		"allow": ["WebFetch(domain:www.thinkgrow.ch)"]
+	}
 }

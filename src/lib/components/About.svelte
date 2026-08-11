@@ -54,8 +54,11 @@
 			</p>
 
 			<div>
-				<h3 class="mb-3 text-sm font-semibold tracking-wider uppercase" style:color="var(--text-muted)">
-					Ausserhalb des Büros 
+				<h3
+					class="mb-3 text-sm font-semibold tracking-wider uppercase"
+					style:color="var(--text-muted)"
+				>
+					Ausserhalb des Büros
 				</h3>
 				<ul class="flex flex-wrap gap-2">
 					{#each hobbies as hobby (hobby)}

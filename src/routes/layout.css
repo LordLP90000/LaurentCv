@@ -23,8 +23,8 @@
 	--color-ink-900: #3b133531;
 
 	--color-accent-400: #8ab4ff;
-	--color-accent-500: #7F00FF;
-	--color-accent-600: #9D00FF;
+	--color-accent-500: #7f00ff;
+	--color-accent-600: #9d00ff;
 
 	--color-highlight: #7cf5c1;
 }
@@ -52,7 +52,7 @@
 	--text: var(--color-ink-50);
 	--text-muted: var(--color-ink-300);
 	--accent: var(--color-accent-400);
---accent-soft: rgba(127, 0, 255, 0.12);
+	--accent-soft: rgba(127, 0, 255, 0.12);
 	--highlight: #9000ff;
 	--ring: rgba(127, 0, 255, 0.35);
 }

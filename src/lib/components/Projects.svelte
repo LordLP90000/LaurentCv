@@ -32,7 +32,10 @@
 			>
 				<header class="flex items-start justify-between gap-3">
 					<div>
-						<p class="mb-1 font-mono text-xs tracking-wider uppercase" style:color="var(--text-muted)">
+						<p
+							class="mb-1 font-mono text-xs tracking-wider uppercase"
+							style:color="var(--text-muted)"
+						>
 							{project.year}
 						</p>
 						<h3 class="text-lg font-semibold sm:text-xl">{project.title}</h3>
@@ -73,7 +76,17 @@
 								style:color="var(--accent)"
 							>
 								{link.label}
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<svg
+									width="14"
+									height="14"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
 									<path d="M7 17L17 7M8 7h9v9" />
 								</svg>
 							</a>

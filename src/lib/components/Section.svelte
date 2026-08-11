@@ -15,10 +15,7 @@
 <section {id} class="mx-auto w-full max-w-6xl px-4 py-12 sm:py-16 md:px-6 md:py-28" data-reveal>
 	<header class="mb-10 max-w-2xl">
 		{#if eyebrow}
-			<p
-				class="mb-2 text-xs font-medium tracking-[0.2em] uppercase"
-				style:color="var(--accent)"
-			>
+			<p class="mb-2 text-xs font-medium tracking-[0.2em] uppercase" style:color="var(--accent)">
 				{eyebrow}
 			</p>
 		{/if}

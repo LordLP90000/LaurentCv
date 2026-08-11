@@ -33,10 +33,7 @@
 		</span>
 	</h1>
 
-	<p
-		class="mt-6 max-w-2xl text-base sm:text-lg md:text-xl"
-		style:color="var(--text-muted)"
-	>
+	<p class="mt-6 max-w-2xl text-base sm:text-lg md:text-xl" style:color="var(--text-muted)">
 		{profile.title}
 	</p>
 
@@ -47,7 +44,8 @@
 			style:transform={visible ? 'translateY(0)' : 'translateY(4px)'}
 			style:color="var(--highlight)"
 		>
-			<span style:color="var(--text-muted)">$</span> {profile.tagline[index]}
+			<span style:color="var(--text-muted)">$</span>
+			{profile.tagline[index]}
 		</span>
 	</div>
 
@@ -68,7 +66,10 @@
 		</a>
 	</div>
 
-	<div class="mt-16 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm" style:color="var(--text-muted)">
+	<div
+		class="mt-16 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"
+		style:color="var(--text-muted)"
+	>
 		<span class="flex items-center gap-2">
 			<span class="h-2 w-2 rounded-full" style:background="var(--highlight)"></span>
 			{profile.location}

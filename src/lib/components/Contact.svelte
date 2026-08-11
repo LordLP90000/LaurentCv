@@ -31,13 +31,25 @@
 					style:background="var(--accent-soft)"
 					style:color="var(--accent)"
 				>
-					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<svg
+						width="18"
+						height="18"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
 						<rect x="3" y="5" width="18" height="14" rx="2" />
 						<path d="M3 7l9 6 9-6" />
 					</svg>
 				</span>
 				<div class="flex flex-col">
-					<span class="text-xs tracking-wider uppercase" style:color="var(--text-muted)">E-Mail</span>
+					<span class="text-xs tracking-wider uppercase" style:color="var(--text-muted)"
+						>E-Mail</span
+					>
 					<span class="font-medium">{profile.email}</span>
 				</div>
 			</a>
@@ -53,12 +65,26 @@
 					style:background="var(--accent-soft)"
 					style:color="var(--accent)"
 				>
-					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.87 19.87 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.87 19.87 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" />
+					<svg
+						width="18"
+						height="18"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
+						<path
+							d="M22 16.92v3a2 2 0 0 1-2.18 2 19.87 19.87 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.87 19.87 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"
+						/>
 					</svg>
 				</span>
 				<div class="flex flex-col">
-					<span class="text-xs tracking-wider uppercase" style:color="var(--text-muted)">Telefon</span>
+					<span class="text-xs tracking-wider uppercase" style:color="var(--text-muted)"
+						>Telefon</span
+					>
 					<span class="font-medium">{profile.phone}</span>
 				</div>
 			</a>
@@ -129,15 +155,24 @@
 					rows="5"
 					class="resize-y rounded-md border px-3 py-2 text-base sm:text-sm"
 					style:border-color="var(--border)"
-					style:background="var(--surface)">{form?.values?.message ?? ''}</textarea>
+					style:background="var(--surface)">{form?.values?.message ?? ''}</textarea
+				>
 			</label>
 
 			{#if form?.success}
-				<p class="rounded-md border px-3 py-2 text-sm" style:border-color="var(--highlight)" style:color="var(--highlight)">
+				<p
+					class="rounded-md border px-3 py-2 text-sm"
+					style:border-color="var(--highlight)"
+					style:color="var(--highlight)"
+				>
 					Danke! Deine Nachricht ist angekommen — ich melde mich bald.
 				</p>
 			{:else if form?.error}
-				<p class="rounded-md border px-3 py-2 text-sm" style:border-color="#f87171" style:color="#f87171">
+				<p
+					class="rounded-md border px-3 py-2 text-sm"
+					style:border-color="#f87171"
+					style:color="#f87171"
+				>
 					{form.error}
 				</p>
 			{/if}
@@ -145,7 +180,7 @@
 			<button
 				type="submit"
 				disabled={submitting}
-				class="rounded-lg px-5 py-3 text-sm font-medium text-white shadow-lg shadow-[var(--ring)] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+				class="rounded-lg px-5 py-3 text-sm font-medium text-white shadow-[var(--ring)] shadow-lg transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
 				style:background="var(--accent)"
 			>
 				{submitting ? 'Senden …' : 'Nachricht senden'}

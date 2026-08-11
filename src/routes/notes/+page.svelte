@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Section from '$components/Section.svelte';
+	import Seo from '$components/Seo.svelte';
 
 	interface Note {
 		slug: string;
@@ -28,10 +29,10 @@
 	const formatter = new Intl.DateTimeFormat('de-CH', { dateStyle: 'long' });
 </script>
 
-<svelte:head>
-	<title>Notes · Laurent Scherrer</title>
-	<meta name="description" content="Kurze Notizen und Write-ups von Laurent Scherrer." />
-</svelte:head>
+<Seo
+	title="Notes — Write-ups & Notizen · Laurent Scherrer"
+	description="Kurze Write-ups und Notizen von Laurent Scherrer: vom Schaltschrank zur Shell, Security als Einsteiger und weitere Themen, mit denen ich mich gerade beschäftige."
+/>
 
 <div class="pt-28 md:pt-32">
 	<Section

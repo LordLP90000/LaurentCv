@@ -1,14 +1,12 @@
 <script lang="ts">
 	import Projects from '$components/Projects.svelte';
-	import { profile } from '$data/profile';
-
-	const title = `Projekte · ${profile.name}`;
+	import Seo from '$components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>{title}</title>
-	<meta name="description" content={`Projekte und Experimente von ${profile.name}.`} />
-</svelte:head>
+<Seo
+	title="Projekte — SvelteKit, Security & mehr · Laurent Scherrer"
+	description="Projekte von Laurent Scherrer: Living CV mit SvelteKit, HudlScan und weitere Experimente — mit Stack, Status und Links zu den GitHub-Repositories."
+/>
 
 <div class="pt-16 md:pt-20">
 	<Projects />

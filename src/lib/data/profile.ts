@@ -33,7 +33,11 @@ export const profile: Profile = {
 	bio: `Nach meiner vierjährigen Erstausbildung zum Elektroinstallateur EFZ bringe ich ein fundiertes Verständnis für technische Anlagen, elektrische Systeme und industrielle Abläufe mit. Die Arbeit mit Siemens Logo Steuerungen hat mein Interesse an der Informatik geweckt — aktuell bin ich im zweiten Lehrjahr meiner Zweitausbildung als Informatiker bei der Komax AG. Mein besonderes Interesse gilt IT-Security, Algorithmen und der Kommunikation zwischen Systemen.`,
 	social: [
 		{ label: 'GitHub', href: 'https://github.com/LordLP90000', icon: 'github' },
-		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/laurent-lucien-scherrer-43a918237', icon: 'linkedin' },
+		{
+			label: 'LinkedIn',
+			href: 'https://www.linkedin.com/in/laurent-lucien-scherrer-43a918237',
+			icon: 'linkedin'
+		},
 		{ label: 'E-Mail', href: 'mailto:laurent.scherrer@komaxgroup.com', icon: 'mail' },
 		{ label: 'Telefon', href: 'tel:+41765119845', icon: 'phone' }
 	]

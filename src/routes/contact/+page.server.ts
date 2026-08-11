@@ -54,7 +54,10 @@ export const actions: Actions = {
 		if (!response.ok) {
 			const errorBody = await response.text().catch(() => '');
 			console.error('[contact] send error', response.status, errorBody);
-			return fail(500, { error: 'Die Nachricht konnte nicht gesendet werden. Bitte versuche es später erneut.', values });
+			return fail(500, {
+				error: 'Die Nachricht konnte nicht gesendet werden. Bitte versuche es später erneut.',
+				values
+			});
 		}
 
 		return { success: true, values: { name: '', email: '', message: '' } };

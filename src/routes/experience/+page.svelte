@@ -1,14 +1,12 @@
 <script lang="ts">
 	import Timeline from '$components/Timeline.svelte';
-	import { profile } from '$data/profile';
-
-	const title = `Werdegang · ${profile.name}`;
+	import Seo from '$components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>{title}</title>
-	<meta name="description" content={`Berufliche Stationen von ${profile.name}.`} />
-</svelte:head>
+<Seo
+	title="Werdegang & Berufserfahrung · Laurent Scherrer"
+	description="Mein Werdegang: vierjährige Lehre als Elektroinstallateur EFZ bei Frey & Cie, jetzt Zweitausbildung zum Applikationsentwickler bei der Komax AG in Dierikon."
+/>
 
 <div class="pt-16 md:pt-20">
 	<Timeline />

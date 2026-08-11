@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Section from '$components/Section.svelte';
+	import Seo from '$components/Seo.svelte';
 
 	const experiments = [
 		{
@@ -10,24 +11,23 @@
 		},
 		{
 			title: 'OPC UA Playground',
-			description: 'Kleine Demos zur Kommunikation zwischen industriellen Geräten und modernen Web-Frontends.',
+			description:
+				'Kleine Demos zur Kommunikation zwischen industriellen Geräten und modernen Web-Frontends.',
 			state: 'skizziert'
 		},
 		{
 			title: 'Svelte + Industrie-UI',
-			description: 'Prototypen für Oberflächen, die direkt mit Maschinen sprechen — inspiriert von Angular-Frontends bei Delta.',
+			description:
+				'Prototypen für Oberflächen, die direkt mit Maschinen sprechen — inspiriert von Angular-Frontends bei Delta.',
 			state: 'bald'
 		}
 	];
 </script>
 
-<svelte:head>
-	<title>Lab · Laurent Scherrer</title>
-	<meta
-		name="description"
-		content="Experimente, Prototypen und Skizzen aus der Werkstatt von Laurent Scherrer."
-	/>
-</svelte:head>
+<Seo
+	title="Tech Lab — Experimente & Prototypen · Laurent Scherrer"
+	description="Tech Lab: Experimente zu Security-Sandboxes, OPC UA und Industrie-UIs — Prototypen und Skizzen, die zeigen, woran ich gerade tüftle und was als Nächstes kommt."
+/>
 
 <div class="pt-28 md:pt-32">
 	<Section

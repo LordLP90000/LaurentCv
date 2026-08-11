@@ -24,15 +24,13 @@ export const projects: Project[] = [
 	{
 		id: 'hudlscan',
 		title: 'HudlScan',
-		summary: 'Analyse-Tool für Hudl-Playbooks, um automatisch Spielzüge zu erkennen und zu kategorisieren.',
+		summary:
+			'Analyse-Tool für Hudl-Playbooks, um automatisch Spielzüge zu erkennen und zu kategorisieren.',
 		description:
 			'Analyse-Tool für Hudl-Playbooks, entwickelt als SvelteKit-Anwendung mit Node-Backend. Inhalte sind strukturiert in TypeScript-Datendateien abgelegt, sodass neue Funktionen und Analysen ohne UI-Änderungen hinzugefügt werden können.',
 		stack: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Node.js'],
 		links: [{ label: 'Repository', href: 'https://github.com/LordLP90000/HudlScan' }],
 		status: 'in-progress',
 		year: '2026'
-	},
-	
-
-	
+	}
 ];
