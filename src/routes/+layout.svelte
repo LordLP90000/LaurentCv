@@ -2,6 +2,8 @@
 	import Header from '$components/Header.svelte';
 	import Footer from '$components/Footer.svelte';
 	import StickyCta from '$components/StickyCta.svelte';
+	import CookieConsent from '$components/CookieConsent.svelte';
+	import Analytics from '$components/Analytics.svelte';
 	import { reveal } from '$lib/actions/reveal';
 	import './layout.css';
 
@@ -51,3 +53,5 @@
 </main>
 <Footer />
 <StickyCta />
+<CookieConsent />
+<Analytics />
