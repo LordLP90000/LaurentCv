@@ -22,6 +22,21 @@ export const projects: Project[] = [
 		year: '2026'
 	},
 	{
+		id: 'easyask',
+		title: 'EasyAsk',
+		summary:
+			'KI-Antworten ohne Prompt-Wissen: kurze, verständliche Fragen statt leerem Chat-Feld.',
+		description:
+			'Statt eines leeren Chat-Felds stellt EasyAsk ein paar einfache Fragen, baut daraus im Hintergrund einen präzisen Prompt und liefert direkt brauchbare Antworten — mit Refine-Chips zum Nachjustieren. Eine Codebasis, drei Plattformen: Web, Desktop (Electron) und Mobile (Capacitor). Der Hono-Server ist die einzige Stelle mit Zugriff auf den API-Key.',
+		stack: ['React', 'TypeScript', 'Hono', 'Node.js', 'Electron', 'Anthropic API'],
+		links: [
+			{ label: 'Live-App', href: 'https://easyask.vercel.app' },
+			{ label: 'Repository', href: 'https://github.com/LordLP90000/easyask' }
+		],
+		status: 'in-progress',
+		year: '2026'
+	},
+	{
 		id: 'hudlscan',
 		title: 'HudlScan',
 		summary:

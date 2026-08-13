@@ -26,7 +26,7 @@ export const profile: Profile = {
 		'Security · Algorithmen · Schnittstellen.'
 	],
 	location: 'Meggen, Schweiz',
-	email: 'laurent.scherrer@komaxgroup.com',
+	email: 'laurent.scherrer@gmx.ch',
 	phone: '+41 76 511 98 45',
 	birthDate: '09.04.2005',
 	citizenship: 'CH / IT',
@@ -38,7 +38,7 @@ export const profile: Profile = {
 			href: 'https://www.linkedin.com/in/laurent-lucien-scherrer-43a918237',
 			icon: 'linkedin'
 		},
-		{ label: 'E-Mail', href: 'mailto:laurent.scherrer@komaxgroup.com', icon: 'mail' },
+		{ label: 'E-Mail', href: 'mailto:laurent.scherrer@gmx.ch', icon: 'mail' },
 		{ label: 'Telefon', href: 'tel:+41765119845', icon: 'phone' }
 	]
 };
