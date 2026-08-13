@@ -90,7 +90,7 @@ Replace the ink/purple `@theme` tokens with:
 | `Faq.svelte` | restyle | `<details>` rows, mono `+` marker, keeps FAQPage JSON-LD. |
 | `ThemeToggle.svelte` | restyle | Bordered mono text button "MODUS: DUNKEL"/"MODUS: HELL" (used inside Sidebar). |
 | `Seo.svelte`, `JsonLd.svelte`, `Analytics.svelte`, `CookieConsent.svelte` (restyle only), `reveal.ts` | keep | CookieConsent gets square corners/tokens. |
-| `Header`, `StickyCta`, `Breadcrumbs`, `RelatedLinks`, `ResponsePromise` | DELETE | ResponsePromise text superseded by `site.ts` value. |
+| `Header`, `Footer`, `StickyCta`, `Breadcrumbs`, `RelatedLinks`, `ResponsePromise` | DELETE | Footer's content becomes the mono footer line inside section 08. ResponsePromise text superseded by `site.ts` value. |
 
 ## 6. Data layer
 
