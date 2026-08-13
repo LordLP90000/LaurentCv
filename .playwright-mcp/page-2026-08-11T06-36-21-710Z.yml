@@ -1,0 +1,70 @@
+- generic [ref=f1e2]:
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link "LS Laurent Scherrer" [ref=f1e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f1e6]: LS
+        - generic [ref=f1e7]: Laurent Scherrer
+      - navigation [ref=f1e8]:
+        - link "Über mich" [ref=f1e9] [cursor=pointer]:
+          - /url: /about
+        - link "Werdegang" [ref=f1e10] [cursor=pointer]:
+          - /url: /experience
+        - link "Skills" [ref=f1e11] [cursor=pointer]:
+          - /url: /skills
+        - link "Projekte" [ref=f1e12] [cursor=pointer]:
+          - /url: /projects
+        - link "Ausbildung" [ref=f1e13] [cursor=pointer]:
+          - /url: /education
+        - link "Lab" [ref=f1e14] [cursor=pointer]:
+          - /url: /lab
+        - link "Notes" [ref=f1e15] [cursor=pointer]:
+          - /url: /notes
+        - link "Kontakt" [ref=f1e16] [cursor=pointer]:
+          - /url: /contact
+      - button "Theme wechseln" [ref=f1e18]
+  - main [ref=f1e22]:
+    - generic [ref=f1e23]:
+      - paragraph [ref=f1e24]: Hi, ich bin
+      - heading "Laurent Scherrer." [level=1] [ref=f1e25]
+      - paragraph [ref=f1e26]: Informatiker in Ausbildung · Elektroinstallateur EFZ
+      - generic [ref=f1e27]: $ From circuits to code.
+      - generic [ref=f1e29]:
+        - link "Kontakt aufnehmen" [ref=f1e30] [cursor=pointer]:
+          - /url: /contact
+        - link "Projekte ansehen" [ref=f1e31] [cursor=pointer]:
+          - /url: /projects
+      - paragraph [ref=f1e33]: Ich antworte innerhalb von [X].
+      - generic [ref=f1e37]:
+        - generic [ref=f1e38]: Meggen, Schweiz
+        - generic [ref=f1e40]: ·
+        - generic [ref=f1e41]: CH / IT
+        - generic [ref=f1e42]: ·
+        - generic [ref=f1e43]: "* 09.04.2005"
+  - contentinfo [ref=f1e44]:
+    - generic [ref=f1e45]:
+      - generic [ref=f1e46]:
+        - generic [ref=f1e47]: Laurent Lucien Scherrer
+        - generic [ref=f1e48]: Informatiker in Ausbildung · Elektroinstallateur EFZ
+      - navigation [ref=f1e49]:
+        - link "GitHub" [ref=f1e50] [cursor=pointer]:
+          - /url: https://github.com/LordLP90000
+        - link "LinkedIn" [ref=f1e51] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/laurent-lucien-scherrer-43a918237
+        - link "E-Mail" [ref=f1e52] [cursor=pointer]:
+          - /url: mailto:laurent.scherrer@komaxgroup.com
+        - link "Telefon" [ref=f1e53] [cursor=pointer]:
+          - /url: tel:+41765119845
+      - generic [ref=f1e54]:
+        - link "Datenschutz" [ref=f1e55] [cursor=pointer]:
+          - /url: /datenschutz
+        - generic [ref=f1e56]: ·
+        - generic [ref=f1e57]: © 2026 · Built with SvelteKit
+  - region "Cookie-Hinweis" [ref=f1e58]:
+    - paragraph [ref=f1e59]:
+      - text: Ich würde gerne mit Google Analytics verstehen, wie diese Seite genutzt wird — aber nur mit deinem Einverständnis. Ohne Zustimmung wird nichts geladen.
+      - link "Mehr dazu in der Datenschutzerklärung." [ref=f1e60] [cursor=pointer]:
+        - /url: /datenschutz
+    - generic [ref=f1e61]:
+      - button "Ablehnen" [ref=f1e62]
+      - button "Einverstanden" [ref=f1e63]
