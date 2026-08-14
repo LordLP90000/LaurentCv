@@ -1,3 +1,5 @@
+import type { Locale } from '$lib/i18n';
+
 export interface InterestArea {
 	priority: number;
 	title: string;
@@ -5,7 +7,7 @@ export interface InterestArea {
 	tags: string[];
 }
 
-export const interestAreas: InterestArea[] = [
+const de: InterestArea[] = [
 	{
 		priority: 1,
 		title: 'Security',
@@ -29,4 +31,33 @@ export const interestAreas: InterestArea[] = [
 	}
 ];
 
-export const hobbies = ['American Football', 'Snowboarden', 'Gym', 'Gaming', 'Kochen'];
+const en: InterestArea[] = [
+	{
+		priority: 1,
+		title: 'Security',
+		description:
+			'Cloud security, data protection, vulnerability scanning & management, compliance with standards. The area I see myself in long-term — hardening systems and uncovering weaknesses.',
+		tags: ['Cloud Security', 'Vulnerability Management', 'Compliance', 'Data protection']
+	},
+	{
+		priority: 2,
+		title: 'Interfaces',
+		description:
+			'OPC UA, REST — how systems and machines communicate. My background as an electrician gives me the hardware side; I want to deepen the software side.',
+		tags: ['OPC UA', 'REST', 'Integration']
+	},
+	{
+		priority: 3,
+		title: 'Angular frontend',
+		description:
+			'Frontends for industrial machines (Delta). Interfaces that talk directly to the plant — the immediate feedback is what makes this work appealing.',
+		tags: ['Angular', 'TypeScript', 'Industrial UI']
+	}
+];
+
+export const interestAreas: Record<Locale, InterestArea[]> = { de, en };
+
+export const hobbies: Record<Locale, string[]> = {
+	de: ['American Football', 'Snowboarden', 'Gym', 'Gaming', 'Kochen'],
+	en: ['American football', 'Snowboarding', 'Gym', 'Gaming', 'Cooking']
+};

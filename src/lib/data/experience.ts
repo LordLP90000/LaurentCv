@@ -1,3 +1,5 @@
+import type { Locale } from '$lib/i18n';
+
 export interface Experience {
 	id: string;
 	role: string;
@@ -11,7 +13,7 @@ export interface Experience {
 	tags: string[];
 }
 
-export const experience: Experience[] = [
+const de: Experience[] = [
 	{
 		id: 'komax-applikationsentwickler',
 		role: 'Lernender Applikationsentwickler (Zweitausbildung)',
@@ -49,3 +51,44 @@ export const experience: Experience[] = [
 		tags: ['Siemens Logo', 'SPS', 'Schemas', 'NIV']
 	}
 ];
+
+const en: Experience[] = [
+	{
+		id: 'komax-applikationsentwickler',
+		role: 'Software developer apprentice (second apprenticeship)',
+		company: 'Komax AG',
+		period: '2025 – today',
+		start: '2025',
+		end: 'today',
+		location: 'Dierikon, Switzerland',
+		summary:
+			'Second apprenticeship as a software developer (EFZ) after completing my electrician apprenticeship. Currently in the third year.',
+		highlights: [
+			'Working across a range of programming languages and technologies',
+			'Exposure to interfaces, frontend development and security',
+			'Combining an electrical background with software engineering'
+		],
+		tags: ['C#', '.NET', 'TypeScript', 'Git', 'Azure DevOps']
+	},
+	{
+		id: 'frey-cie-elektriker',
+		role: 'Certified electrician EFZ',
+		company: 'Frey & Cie',
+		period: '2021 – 2025',
+		start: '2021',
+		end: '2025',
+		location: 'Kriens, Switzerland',
+		summary:
+			'Four-year apprenticeship as a certified electrician with a focus on control and plant technology.',
+		highlights: [
+			'Programming Siemens Logo controls',
+			'Installing and commissioning electrical systems',
+			'Maintenance and troubleshooting of technical systems',
+			'Reading and drawing electrical schematics',
+			'Working to standards and safety regulations (NIV)'
+		],
+		tags: ['Siemens Logo', 'PLC', 'Schematics', 'NIV']
+	}
+];
+
+export const experience: Record<Locale, Experience[]> = { de, en };
