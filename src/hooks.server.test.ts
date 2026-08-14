@@ -45,7 +45,9 @@ describe('hooks.server handle', () => {
 		['/', 'de'],
 		['/danke', 'de'],
 		['/en', 'en'],
-		['/en/danke', 'en']
+		['/en/danke', 'en'],
+		['/enx', 'de'],
+		['/en/', 'en']
 	])('stamps <html lang> for %s as %s', async (path, lang) => {
 		const event = { url: new URL(`http://localhost${path}`) } as unknown as RequestEvent;
 		let transformed: string | undefined;
