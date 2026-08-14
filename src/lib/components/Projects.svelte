@@ -1,29 +1,24 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import Section from './Section.svelte';
-	import { projects, type Project } from '$data/projects';
+	import { localeOf } from '$lib/i18n';
+	import { ui } from '$data/ui';
+	import { projects } from '$data/projects';
 
-	const statusLabel: Record<Project['status'], string> = {
-		'in-progress': 'IN ARBEIT',
-		live: 'LIVE',
-		archived: 'ARCHIVIERT',
-		concept: 'KONZEPT'
-	};
+	const locale = $derived(localeOf(page.params));
+	const t = $derived(ui[locale].projekte);
+	const items = $derived(projects[locale]);
 </script>
 
-<Section
-	id="a-projekte"
-	num="04"
-	title="Projekte"
-	lead="Kein poliertes Portfolio-Grid, sondern die Werkbank: Dinge, an denen ich gerade arbeite."
->
+<Section id="a-projekte" num="04" title={t.title} lead={t.lead}>
 	<div class="flex flex-col" data-reveal-group data-reveal-step="90">
-		{#each projects as p (p.id)}
+		{#each items as p (p.id)}
 			<article
 				class="grid gap-4 border-b border-line py-9 min-[900px]:grid-cols-[200px_1fr] min-[900px]:gap-8"
 			>
 				<div>
 					<p class="font-mono text-[13px]">{p.year}</p>
-					<p class="mt-1.5 font-mono text-xs text-copper">{statusLabel[p.status]}</p>
+					<p class="mt-1.5 font-mono text-xs text-copper">{t.status[p.status]}</p>
 				</div>
 				<div>
 					<h3 class="text-[26px] leading-tight font-semibold tracking-[-0.015em]">{p.title}</h3>
@@ -39,7 +34,7 @@
 								rel="noreferrer"
 								class="border-b border-copper pb-px text-sm font-medium text-copper"
 							>
-								{link.label} ansehen →
+								{t.linkText(link.label)}
 							</a>
 						{/each}
 					</p>

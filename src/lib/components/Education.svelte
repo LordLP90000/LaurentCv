@@ -1,17 +1,18 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import Section from './Section.svelte';
-	import { education, type Education } from '$data/education';
+	import { localeOf } from '$lib/i18n';
+	import { ui } from '$data/ui';
+	import { education } from '$data/education';
 
-	const typeLabel: Record<Education['type'], string> = {
-		apprenticeship: 'LEHRE',
-		school: 'SCHULE',
-		certification: 'ZERTIFIKAT'
-	};
+	const locale = $derived(localeOf(page.params));
+	const t = $derived(ui[locale].ausbildung);
+	const entries = $derived(education[locale]);
 </script>
 
-<Section id="a-ausbildung" num="05" title="Ausbildung">
+<Section id="a-ausbildung" num="05" title={t.title}>
 	<ul>
-		{#each education as e (e.id)}
+		{#each entries as e (e.id)}
 			<li
 				class="spec-row -mx-2.5 grid items-baseline gap-1 border-b border-line px-2.5 py-4 min-[900px]:grid-cols-[200px_1fr_120px] min-[900px]:gap-8"
 			>
@@ -22,7 +23,7 @@
 					>
 				</span>
 				<span class="font-mono text-[11px] tracking-[0.08em] text-muted min-[900px]:text-right">
-					{typeLabel[e.type]}
+					{t.type[e.type]}
 				</span>
 			</li>
 		{/each}
