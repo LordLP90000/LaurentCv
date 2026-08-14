@@ -3,27 +3,26 @@
 
 	interface Props {
 		id: string;
-		eyebrow?: string;
+		num: string;
 		title: string;
 		lead?: string;
+		first?: boolean;
 		children: Snippet;
 	}
 
-	let { id, eyebrow, title, lead, children }: Props = $props();
+	let { id, num, title, lead, first = false, children }: Props = $props();
 </script>
 
-<section {id} class="mx-auto w-full max-w-6xl px-4 py-12 sm:py-16 md:px-6 md:py-28" data-reveal>
-	<header class="mb-10 max-w-2xl">
-		{#if eyebrow}
-			<p class="mb-2 text-xs font-medium tracking-[0.2em] uppercase" style:color="var(--accent)">
-				{eyebrow}
-			</p>
-		{/if}
-		<h2 class="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">{title}</h2>
-		{#if lead}
-			<p class="mt-3 text-base leading-relaxed" style:color="var(--text-muted)">{lead}</p>
-		{/if}
-	</header>
-
+<section
+	{id}
+	data-reveal
+	class={first ? 'pt-10 min-[900px]:pt-22' : 'mt-24 border-t border-line-strong pt-8 min-[900px]:mt-30'}
+>
+	<h2 class="mb-5 font-mono text-xs tracking-[0.12em] text-copper">
+		{num} — {title.toUpperCase()}
+	</h2>
+	{#if lead}
+		<p class="mb-10 max-w-[600px] text-[15px] leading-[1.65] text-muted">{lead}</p>
+	{/if}
 	{@render children()}
 </section>
