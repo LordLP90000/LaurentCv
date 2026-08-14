@@ -1,3 +1,5 @@
+import type { Locale } from '$lib/i18n';
+
 /**
  * FAQ entries — drafted for review, edit freely.
  * Answers are also used as plain text in the FAQPage JSON-LD.
@@ -7,7 +9,7 @@ export interface FaqEntry {
 	answer: string;
 }
 
-export const faq: FaqEntry[] = [
+const de: FaqEntry[] = [
 	{
 		question: 'Wo stehst du gerade in deiner Ausbildung?',
 		answer:
@@ -34,3 +36,32 @@ export const faq: FaqEntry[] = [
 			'Am einfachsten über das Kontaktformular oder per E-Mail. Ich antworte innerhalb von 48 Stunden.'
 	}
 ];
+
+const en: FaqEntry[] = [
+	{
+		question: 'Where are you in your training right now?',
+		answer:
+			'I am in the third year of my second apprenticeship as a software developer (Applikationsentwickler EFZ) at Komax AG. Before that I completed a four-year apprenticeship as a certified electrician (EFZ).'
+	},
+	{
+		question: 'What kind of requests are you open to?',
+		answer:
+			'Security projects, tech exchanges, side projects and anything related to interfaces between systems. Just write me via the contact form — even if you only have a question about one of my projects.'
+	},
+	{
+		question: 'Which technologies do you mainly work with?',
+		answer:
+			'In my apprenticeship mainly C#, .NET, TypeScript, Git and Azure DevOps. Privately I build with SvelteKit and Tailwind CSS — this website is itself one of those projects. On top of that comes my electrical background with Siemens Logo and control technology.'
+	},
+	{
+		question: 'What sets you apart from other developers at the start of their career?',
+		answer:
+			'The combination of two apprenticeships: four years of electrical installation gave me a practical understanding of plants, hardware and industrial processes — that helps wherever software talks to machines and real-world systems.'
+	},
+	{
+		question: 'What is the best way to reach you?',
+		answer: 'Easiest via the contact form or by e-mail. I reply within 48 hours.'
+	}
+];
+
+export const faq: Record<Locale, FaqEntry[]> = { de, en };
