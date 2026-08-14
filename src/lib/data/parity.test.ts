@@ -6,6 +6,9 @@ import { experience } from './experience';
 import { education } from './education';
 import { skillLegend, skillCategories, languages } from './skills';
 import { interestAreas, hobbies } from './interests';
+import { projects } from './projects';
+import { experiments } from './lab';
+import { notes } from './notes';
 
 function ids<T extends { id: string }>(arr: T[]) {
 	return arr.map((x) => x.id);
@@ -64,5 +67,26 @@ describe('locale data parity (de/en must never silently diverge)', () => {
 
 	it('hobbies: same length', () => {
 		expect(hobbies.en.length).toBe(hobbies.de.length);
+	});
+
+	it('projects: same ids/order, status/year by index, stack arrays, link hrefs by index', () => {
+		expect(ids(projects.en)).toEqual(ids(projects.de));
+		expect(projects.en.map((p) => p.status)).toEqual(projects.de.map((p) => p.status));
+		expect(projects.en.map((p) => p.year)).toEqual(projects.de.map((p) => p.year));
+		projects.de.forEach((deProject, i) => {
+			const enProject = projects.en[i];
+			expect(enProject.stack).toEqual(deProject.stack);
+			expect(enProject.links.map((l) => l.href)).toEqual(deProject.links.map((l) => l.href));
+		});
+	});
+
+	it('experiments: same length and state values in same order', () => {
+		expect(experiments.en.length).toBe(experiments.de.length);
+		expect(experiments.en.map((x) => x.state)).toEqual(experiments.de.map((x) => x.state));
+	});
+
+	it('notes: same slugs in same order, same dates', () => {
+		expect(notes.en.map((n) => n.slug)).toEqual(notes.de.map((n) => n.slug));
+		expect(notes.en.map((n) => n.date)).toEqual(notes.de.map((n) => n.date));
 	});
 });

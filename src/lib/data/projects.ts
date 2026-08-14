@@ -1,3 +1,5 @@
+import type { Locale } from '$lib/i18n';
+
 export interface Project {
 	id: string;
 	title: string;
@@ -9,7 +11,7 @@ export interface Project {
 	year: string;
 }
 
-export const projects: Project[] = [
+const de: Project[] = [
 	{
 		id: 'laurent-cv',
 		title: 'Living CV',
@@ -48,3 +50,45 @@ export const projects: Project[] = [
 		year: '2026'
 	}
 ];
+
+const en: Project[] = [
+	{
+		id: 'laurent-cv',
+		title: 'Living CV',
+		summary: 'This portfolio. A modular, evolving CV built with SvelteKit.',
+		description:
+			'Personal portfolio site built as a SvelteKit application with a Node backend. Content is structured in TypeScript data files, so new sections, projects and skills can be added without UI changes.',
+		stack: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Node.js'],
+		links: [{ label: 'Repository', href: 'https://github.com/LordLP90000/LaurentCv' }],
+		status: 'in-progress',
+		year: '2026'
+	},
+	{
+		id: 'easyask',
+		title: 'EasyAsk',
+		summary:
+			'AI answers without prompt engineering: a few short, simple questions instead of an empty chat box.',
+		description:
+			'Instead of an empty chat box, EasyAsk asks a few simple questions, builds a precise prompt in the background and returns directly usable answers — with refine chips for fine-tuning. One codebase, three platforms: web, desktop (Electron) and mobile (Capacitor). The Hono server is the only place with access to the API key.',
+		stack: ['React', 'TypeScript', 'Hono', 'Node.js', 'Electron', 'Anthropic API'],
+		links: [
+			{ label: 'Live app', href: 'https://easyask.vercel.app' },
+			{ label: 'Repository', href: 'https://github.com/LordLP90000/easyask' }
+		],
+		status: 'in-progress',
+		year: '2026'
+	},
+	{
+		id: 'hudlscan',
+		title: 'HudlScan',
+		summary: 'Analysis tool for Hudl playbooks that automatically detects and categorises plays.',
+		description:
+			'Analysis tool for Hudl playbooks, built as a SvelteKit application with a Node backend. Content is structured in TypeScript data files, so new features and analyses can be added without UI changes.',
+		stack: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Node.js'],
+		links: [{ label: 'Repository', href: 'https://github.com/LordLP90000/HudlScan' }],
+		status: 'in-progress',
+		year: '2026'
+	}
+];
+
+export const projects: Record<Locale, Project[]> = { de, en };

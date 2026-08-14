@@ -951,10 +951,12 @@ const en: Note[] = [
 export const notes: Record<Locale, Note[]> = { de, en };
 ```
 
+- [ ] **Step 6.5 (drift guard, extends Step 5.6):** Extend `src/lib/data/parity.test.ts` with three more `it` blocks, same plain describe/it style, no mocks: `projects` (same ids in same order, same status/year by index, same stack arrays, same link hrefs by index), `experiments` (same length and same `state` values in same order), `notes` (same slugs in same order, same dates).
+
 - [ ] **Step 6.4:** Commit:
 
 ```bash
-git add src/lib/data/projects.ts src/lib/data/lab.ts src/lib/data/notes.ts
+git add src/lib/data/projects.ts src/lib/data/lab.ts src/lib/data/notes.ts src/lib/data/parity.test.ts
 git commit -m "feat: locale-keyed projects/lab/notes data"
 ```
 
