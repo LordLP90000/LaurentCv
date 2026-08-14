@@ -40,4 +40,23 @@ describe('hooks.server handle', () => {
 		const res = (await invoke('/')) as Response;
 		expect(await res.text()).toBe('ok');
 	});
+
+	it.each([
+		['/', 'de'],
+		['/danke', 'de'],
+		['/en', 'en'],
+		['/en/danke', 'en']
+	])('stamps <html lang> for %s as %s', async (path, lang) => {
+		const event = { url: new URL(`http://localhost${path}`) } as unknown as RequestEvent;
+		let transformed: string | undefined;
+		const resolve = async (
+			_event: unknown,
+			opts?: { transformPageChunk?: (input: { html: string; done: boolean }) => string }
+		) => {
+			transformed = opts?.transformPageChunk?.({ html: '<html lang="%lang%">', done: true });
+			return new Response('ok');
+		};
+		await handle({ event, resolve } as never);
+		expect(transformed).toBe(`<html lang="${lang}">`);
+	});
 });

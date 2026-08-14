@@ -16,5 +16,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const pathname = event.url.pathname.replace(/\/+$/, '') || '/';
 	const target = retiredRoutes[pathname];
 	if (target) redirect(301, target);
-	return resolve(event);
+
+	const lang = pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'de';
+	return resolve(event, {
+		transformPageChunk: ({ html }) => html.replace('%lang%', lang)
+	});
 };
