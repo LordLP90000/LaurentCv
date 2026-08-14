@@ -1,12 +1,15 @@
 import type { Actions } from './$types';
 import { fail, redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
+import { ui } from '$data/ui';
+import { localeOf } from '$lib/i18n';
 
 const MESSAGE_MIN = 10;
 const NAME_MIN = 2;
 
 export const actions: Actions = {
-	contact: async ({ request }) => {
+	contact: async ({ request, params }) => {
+		const t = ui[localeOf(params)].formErrors;
 		const data = await request.formData();
 		const name = String(data.get('name') ?? '').trim();
 		const email = String(data.get('email') ?? '').trim();
@@ -15,13 +18,13 @@ export const actions: Actions = {
 		const values = { name, email, message };
 
 		if (name.length < NAME_MIN) {
-			return fail(400, { error: 'Bitte gib deinen Namen an.', values });
+			return fail(400, { error: t.name, values });
 		}
 		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-			return fail(400, { error: 'Bitte gib eine gültige E-Mail-Adresse an.', values });
+			return fail(400, { error: t.email, values });
 		}
 		if (message.length < MESSAGE_MIN) {
-			return fail(400, { error: 'Die Nachricht ist zu kurz.', values });
+			return fail(400, { error: t.message, values });
 		}
 
 		if (!env.SENDWITH_API_KEY || !env.CONTACT_TO_EMAIL || !env.CONTACT_FROM_EMAIL) {
@@ -31,7 +34,7 @@ export const actions: Actions = {
 				CONTACT_FROM_EMAIL: !!env.CONTACT_FROM_EMAIL,
 				availableKeys: Object.keys(env).filter((k) => k.includes('SEND') || k.includes('CONTACT'))
 			});
-			return fail(500, { error: 'Der Server ist nicht korrekt konfiguriert.', values });
+			return fail(500, { error: t.server, values });
 		}
 
 		const response = await fetch('https://app.sendwith.email/api/send', {
@@ -55,11 +58,11 @@ export const actions: Actions = {
 			const errorBody = await response.text().catch(() => '');
 			console.error('[contact] send error', response.status, errorBody);
 			return fail(500, {
-				error: 'Die Nachricht konnte nicht gesendet werden. Bitte versuche es später erneut.',
+				error: t.send,
 				values
 			});
 		}
 
-		redirect(303, '/danke');
+		redirect(303, localeOf(params) === 'en' ? '/en/danke' : '/danke');
 	}
 };
