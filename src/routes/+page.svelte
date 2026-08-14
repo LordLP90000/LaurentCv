@@ -1,9 +1,19 @@
 <script lang="ts">
 	import Hero from '$components/Hero.svelte';
+	import Timeline from '$components/Timeline.svelte';
+	import Skills from '$components/Skills.svelte';
+	import Projects from '$components/Projects.svelte';
+	import Education from '$components/Education.svelte';
+	import Lab from '$components/Lab.svelte';
+	import Notes from '$components/Notes.svelte';
+	import Contact from '$components/Contact.svelte';
 	import Seo from '$components/Seo.svelte';
 	import JsonLd from '$components/JsonLd.svelte';
 	import { page } from '$app/state';
 	import { profile } from '$data/profile';
+	import type { ActionData } from './$types';
+
+	let { form }: { form: ActionData } = $props();
 
 	const personSchema = $derived({
 		'@context': 'https://schema.org',
@@ -31,3 +41,10 @@
 <JsonLd data={personSchema} />
 
 <Hero />
+<Timeline />
+<Skills />
+<Projects />
+<Education />
+<Lab />
+<Notes />
+<Contact {form} />
