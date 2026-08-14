@@ -54,7 +54,7 @@ const de = {
 			live: 'LIVE',
 			archived: 'ARCHIVIERT',
 			concept: 'KONZEPT'
-		} as Record<Project['status'], string>,
+		} satisfies Record<Project['status'], string>,
 		linkText: (label: string) => `${label} ansehen →`
 	},
 	ausbildung: {
@@ -63,7 +63,7 @@ const de = {
 			apprenticeship: 'LEHRE',
 			school: 'SCHULE',
 			certification: 'ZERTIFIKAT'
-		} as Record<Education['type'], string>
+		} satisfies Record<Education['type'], string>
 	},
 	lab: {
 		title: 'Lab',
@@ -72,7 +72,7 @@ const de = {
 			geplant: 'GEPLANT',
 			skizziert: 'SKIZZIERT',
 			bald: 'BALD'
-		} as Record<LabExperiment['state'], string>,
+		} satisfies Record<LabExperiment['state'], string>,
 		footnote: 'DIESE SEITE WÄCHST MIT — NEUE EXPERIMENTE, KEIN UI-REFACTORING.'
 	},
 	notes: {
@@ -185,7 +185,7 @@ const en: UiStrings = {
 			live: 'LIVE',
 			archived: 'ARCHIVED',
 			concept: 'CONCEPT'
-		} as Record<Project['status'], string>,
+		},
 		linkText: (label: string) => `View ${label} →`
 	},
 	ausbildung: {
@@ -194,7 +194,7 @@ const en: UiStrings = {
 			apprenticeship: 'APPRENTICESHIP',
 			school: 'SCHOOL',
 			certification: 'CERTIFICATE'
-		} as Record<Education['type'], string>
+		}
 	},
 	lab: {
 		title: 'Lab',
@@ -203,7 +203,7 @@ const en: UiStrings = {
 			geplant: 'PLANNED',
 			skizziert: 'SKETCHED',
 			bald: 'SOON'
-		} as Record<LabExperiment['state'], string>,
+		},
 		footnote: 'THIS PAGE GROWS OVER TIME — NEW EXPERIMENTS, NO UI REFACTORING.'
 	},
 	notes: {
