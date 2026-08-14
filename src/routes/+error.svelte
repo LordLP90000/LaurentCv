@@ -15,21 +15,12 @@
 	noindex
 />
 
-<section
-	class="mx-auto flex min-h-[70svh] w-full max-w-6xl flex-col justify-center px-4 pt-28 pb-12 md:px-6 md:pt-32"
->
-	<p class="mb-4 font-mono text-sm" style:color="var(--text-muted)">
-		<span style:color="var(--highlight)">$</span> curl -I {page.url.pathname}
-	</p>
-	<h1 class="text-5xl font-semibold tracking-tight sm:text-6xl md:text-7xl">
-		<span
-			class="bg-clip-text text-transparent"
-			style:background-image="linear-gradient(135deg, var(--accent), var(--highlight))"
-		>
-			{page.status}
-		</span>
+<section class="flex min-h-[70svh] flex-col justify-center py-16">
+	<p class="mb-5 font-mono text-xs tracking-[0.12em] text-copper">FEHLER — {page.status}</p>
+	<h1 class="text-[clamp(3rem,10vw,5.5rem)] leading-none font-bold tracking-[-0.035em]">
+		{page.status}
 	</h1>
-	<p class="mt-6 max-w-xl text-base sm:text-lg" style:color="var(--text-muted)">
+	<p class="mt-6 max-w-[560px] leading-[1.65] text-muted">
 		{#if isNotFound}
 			Diese Seite gibt es nicht — vielleicht ein Tippfehler in der URL, vielleicht habe ich sie
 			umgebaut. Kein Problem: Von hier aus geht's weiter.
@@ -37,21 +28,13 @@
 			Da ist etwas schiefgelaufen. Versuch es später noch einmal — oder sag mir kurz Bescheid.
 		{/if}
 	</p>
-
-	<div class="mt-10 flex flex-wrap gap-3">
+	<div class="mt-10 flex flex-wrap gap-6 text-sm font-medium">
+		<a href={resolve('/')} class="border-b border-copper pb-0.5 text-copper">Zur Startseite →</a>
 		<a
-			href={resolve('/')}
-			class="rounded-lg px-5 py-3 text-sm font-medium text-white shadow-(--ring) transition-transform hover:-translate-y-0.5"
-			style:background="var(--accent)"
+			href="{resolve('/')}#a-kontakt"
+			class="border-b border-line-strong pb-0.5 transition-colors hover:border-copper hover:text-copper"
 		>
-			Zur Startseite
-		</a>
-		<a
-			href={resolve('/contact')}
-			class="rounded-lg border px-5 py-3 text-sm font-medium transition-colors hover:text-(--accent)"
-			style:border-color="var(--border)"
-		>
-			Kontakt aufnehmen
+			Kontakt →
 		</a>
 	</div>
 </section>
