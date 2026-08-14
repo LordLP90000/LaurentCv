@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { profile } from '$data/profile';
 	import Section from './Section.svelte';
-	import ResponsePromise from './ResponsePromise.svelte';
+	import Faq from './Faq.svelte';
+	import { profile } from '$data/profile';
+	import { responseTime } from '$data/site';
+	import { resolve } from '$app/paths';
 	import { enhance } from '$app/forms';
 
 	interface Props {
@@ -9,177 +11,111 @@
 	}
 
 	let { form }: Props = $props();
-
 	let submitting = $state(false);
+
+	const socials = profile.social.filter((s) => s.icon === 'github' || s.icon === 'linkedin');
+	const inputClass =
+		'border border-line bg-card px-3 py-2 text-base text-ink sm:text-sm focus:border-copper';
 </script>
 
-<Section
-	id="contact"
-	eyebrow="Kontakt"
-	title="Lass uns reden."
-	lead="Ob Praktikum, Security-Projekt oder ein Austausch über Schnittstellen — schreib mir."
->
-	<div class="grid gap-8 md:grid-cols-[1fr_1fr] md:gap-10">
-		<div class="flex flex-col gap-4" data-reveal-group data-reveal-step="80">
-			<a
-				href="mailto:{profile.email}"
-				class="tilt-card group flex items-center gap-4 rounded-xl border p-4 hover:text-[var(--accent)]"
-				style:border-color="var(--border)"
-				style:background="var(--surface-muted)"
-			>
-				<span
-					class="flex h-10 w-10 items-center justify-center rounded-lg"
-					style:background="var(--accent-soft)"
-					style:color="var(--accent)"
-				>
-					<svg
-						width="18"
-						height="18"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						aria-hidden="true"
-					>
-						<rect x="3" y="5" width="18" height="14" rx="2" />
-						<path d="M3 7l9 6 9-6" />
-					</svg>
-				</span>
-				<div class="flex flex-col">
-					<span class="text-xs tracking-wider uppercase" style:color="var(--text-muted)"
-						>E-Mail</span
-					>
-					<span class="font-medium">{profile.email}</span>
-				</div>
-			</a>
+<Section id="a-kontakt" num="08" title="Kontakt">
+	<h3 class="text-[clamp(2.25rem,5vw,3.25rem)] leading-[1.1] font-bold tracking-[-0.025em]">
+		Lass uns reden.
+	</h3>
+	<p class="mt-5 max-w-[560px] leading-[1.65] text-muted">
+		Ob Praktikum, Security-Projekt oder ein Austausch über Schnittstellen — schreib mir. Ich
+		antworte innerhalb von {responseTime}.
+	</p>
 
-			<a
-				href="tel:{profile.phone.replace(/\s/g, '')}"
-				class="tilt-card group flex items-center gap-4 rounded-xl border p-4 hover:text-[var(--accent)]"
-				style:border-color="var(--border)"
-				style:background="var(--surface-muted)"
-			>
-				<span
-					class="flex h-10 w-10 items-center justify-center rounded-lg"
-					style:background="var(--accent-soft)"
-					style:color="var(--accent)"
-				>
-					<svg
-						width="18"
-						height="18"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						aria-hidden="true"
-					>
-						<path
-							d="M22 16.92v3a2 2 0 0 1-2.18 2 19.87 19.87 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.87 19.87 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"
-						/>
-					</svg>
-				</span>
-				<div class="flex flex-col">
-					<span class="text-xs tracking-wider uppercase" style:color="var(--text-muted)"
-						>Telefon</span
-					>
-					<span class="font-medium">{profile.phone}</span>
-				</div>
-			</a>
-
-			<div class="flex flex-wrap gap-3 pt-2">
-				{#each profile.social.filter((s) => s.icon === 'github' || s.icon === 'linkedin') as s (s.href)}
-					<a
-						href={s.href}
-						target="_blank"
-						rel="noreferrer"
-						class="rounded-lg border px-4 py-2 text-sm transition-colors hover:text-[var(--accent)]"
-						style:border-color="var(--border)"
-					>
-						{s.label}
-					</a>
-				{/each}
-			</div>
-		</div>
-
-		<form
-			method="POST"
-			action="?/contact"
-			use:enhance={() => {
-				submitting = true;
-				return async ({ update }) => {
-					await update();
-					submitting = false;
-				};
-			}}
-			class="flex flex-col gap-4 rounded-2xl border p-5 sm:p-6"
-			style:border-color="var(--border)"
-			style:background="var(--surface-muted)"
+	<div class="mt-9 flex flex-col gap-3.5">
+		<a
+			href="mailto:{profile.email}"
+			class="self-start border-b border-copper pb-1 font-mono text-lg break-all transition-colors hover:text-copper min-[900px]:text-[22px]"
 		>
-			<div class="grid gap-4 sm:grid-cols-2">
-				<label class="flex flex-col gap-1 text-sm">
-					<span style:color="var(--text-muted)">Name</span>
-					<input
-						type="text"
-						name="name"
-						required
-						minlength="2"
-						value={form?.values?.name ?? ''}
-						class="rounded-md border px-3 py-2 text-base sm:text-sm"
-						style:border-color="var(--border)"
-						style:background="var(--surface)"
-					/>
-				</label>
-				<label class="flex flex-col gap-1 text-sm">
-					<span style:color="var(--text-muted)">E-Mail</span>
-					<input
-						type="email"
-						name="email"
-						required
-						value={form?.values?.email ?? ''}
-						class="rounded-md border px-3 py-2 text-base sm:text-sm"
-						style:border-color="var(--border)"
-						style:background="var(--surface)"
-					/>
-				</label>
-			</div>
-
-			<label class="flex flex-col gap-1 text-sm">
-				<span style:color="var(--text-muted)">Nachricht</span>
-				<textarea
-					name="message"
-					required
-					minlength="10"
-					rows="5"
-					class="resize-y rounded-md border px-3 py-2 text-base sm:text-sm"
-					style:border-color="var(--border)"
-					style:background="var(--surface)">{form?.values?.message ?? ''}</textarea
-				>
-			</label>
-
-			{#if form?.error}
-				<p
-					class="rounded-md border px-3 py-2 text-sm"
-					style:border-color="#f87171"
-					style:color="#f87171"
-				>
-					{form.error}
-				</p>
-			{/if}
-
-			<button
-				type="submit"
-				disabled={submitting}
-				class="rounded-lg px-5 py-3 text-sm font-medium text-white shadow-[var(--ring)] shadow-lg transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
-				style:background="var(--accent)"
-			>
-				{submitting ? 'Senden …' : 'Nachricht senden'}
-			</button>
-
-			<ResponsePromise />
-		</form>
+			{profile.email}
+		</a>
+		<a
+			href="tel:{profile.phone.replace(/\s/g, '')}"
+			class="self-start font-mono text-base text-muted transition-colors hover:text-copper"
+		>
+			{profile.phone}
+		</a>
 	</div>
+
+	<div class="mt-7 flex gap-6 text-sm font-medium">
+		{#each socials as s (s.href)}
+			<a
+				href={s.href}
+				target="_blank"
+				rel="noreferrer"
+				class="border-b border-line-strong pb-0.5 transition-colors hover:border-copper hover:text-copper"
+			>
+				{s.label} →
+			</a>
+		{/each}
+	</div>
+
+	<form
+		method="POST"
+		action="?/contact"
+		use:enhance={() => {
+			submitting = true;
+			return async ({ update }) => {
+				await update();
+				submitting = false;
+			};
+		}}
+		class="mt-16 flex max-w-[720px] flex-col gap-4 border border-line p-5 sm:p-6"
+	>
+		<h3 class="font-mono text-xs font-medium tracking-[0.1em]">NACHRICHT SENDEN</h3>
+		<div class="grid gap-4 sm:grid-cols-2">
+			<label class="flex flex-col gap-1 text-sm">
+				<span class="font-mono text-[11px] tracking-[0.1em] text-muted">NAME</span>
+				<input
+					type="text"
+					name="name"
+					required
+					minlength="2"
+					value={form?.values?.name ?? ''}
+					class={inputClass}
+				/>
+			</label>
+			<label class="flex flex-col gap-1 text-sm">
+				<span class="font-mono text-[11px] tracking-[0.1em] text-muted">E-MAIL</span>
+				<input
+					type="email"
+					name="email"
+					required
+					value={form?.values?.email ?? ''}
+					class={inputClass}
+				/>
+			</label>
+		</div>
+		<label class="flex flex-col gap-1 text-sm">
+			<span class="font-mono text-[11px] tracking-[0.1em] text-muted">NACHRICHT</span>
+			<textarea name="message" required minlength="10" rows="5" class="resize-y {inputClass}"
+				>{form?.values?.message ?? ''}</textarea
+			>
+		</label>
+
+		{#if form?.error}
+			<p class="border border-copper px-3 py-2 text-sm text-copper" role="alert">{form.error}</p>
+		{/if}
+
+		<button
+			type="submit"
+			disabled={submitting}
+			class="self-start bg-copper px-5 py-3 text-sm font-medium text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-60"
+		>
+			{submitting ? 'Senden …' : 'Nachricht senden'}
+		</button>
+	</form>
+
+	<Faq />
+
+	<p class="mt-20 border-t border-line pt-5 font-mono text-[11px] tracking-[0.06em] text-muted">
+		© 2026 LAURENT SCHERRER · MEGGEN CH ·
+		<a href={resolve('/datenschutz')} class="transition-colors hover:text-copper">DATENSCHUTZ</a> · BUILT
+		WITH SVELTEKIT
+	</p>
 </Section>

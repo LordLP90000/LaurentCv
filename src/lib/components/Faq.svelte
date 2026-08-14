@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { faq } from '$data/faq';
-	import Section from './Section.svelte';
 	import JsonLd from './JsonLd.svelte';
 
 	const schema = {
@@ -9,53 +8,29 @@
 		mainEntity: faq.map((entry) => ({
 			'@type': 'Question',
 			name: entry.question,
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: entry.answer
-			}
+			acceptedAnswer: { '@type': 'Answer', text: entry.answer }
 		}))
 	};
 </script>
 
 <JsonLd data={schema} />
 
-<Section
-	id="faq"
-	eyebrow="FAQ"
-	title="Häufige Fragen."
-	lead="Kurz beantwortet, was Besucher:innen am häufigsten wissen wollen."
->
-	<div class="flex max-w-3xl flex-col gap-3" data-reveal-group data-reveal-step="60">
-		{#each faq as entry (entry.question)}
-			<details
-				class="group rounded-xl border p-1"
-				style:border-color="var(--border)"
-				style:background="var(--surface-muted)"
+<div class="mt-16 max-w-[720px]">
+	<h3 class="border-b border-line-strong pb-2.5 font-mono text-xs font-medium tracking-[0.1em]">
+		HÄUFIGE FRAGEN
+	</h3>
+	{#each faq as entry (entry.question)}
+		<details class="group border-b border-line">
+			<summary
+				class="flex cursor-pointer items-baseline justify-between gap-4 py-3.5 text-[15px] font-medium select-none"
 			>
-				<summary
-					class="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-4 py-3 font-medium select-none"
+				{entry.question}
+				<span
+					class="shrink-0 font-mono text-copper transition-transform group-open:rotate-45"
+					aria-hidden="true">+</span
 				>
-					{entry.question}
-					<svg
-						width="16"
-						height="16"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						aria-hidden="true"
-						class="shrink-0 transition-transform group-open:rotate-180"
-						style:color="var(--accent)"
-					>
-						<path d="M6 9l6 6 6-6" />
-					</svg>
-				</summary>
-				<p class="px-4 pt-1 pb-4 text-sm leading-relaxed" style:color="var(--text-muted)">
-					{entry.answer}
-				</p>
-			</details>
-		{/each}
-	</div>
-</Section>
+			</summary>
+			<p class="max-w-[640px] pb-4 text-sm leading-[1.7] text-muted">{entry.answer}</p>
+		</details>
+	{/each}
+</div>
