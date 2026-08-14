@@ -122,7 +122,7 @@ const en: SkillCategory[] = [
 			{ name: 'HTML / CSS', level: 3 },
 			{ name: 'Go', level: 2 },
 			{ name: 'PHP', level: 2 },
-			{ name: 'Siemens Logo (SPS)', level: 5 }
+			{ name: 'Siemens Logo (PLC)', level: 5 }
 		]
 	},
 	{
@@ -163,7 +163,7 @@ const en: SkillCategory[] = [
 			{ name: 'DNS', level: 3 },
 			{ name: 'Firewall', level: 3 },
 			{ name: 'WLAN', level: 4 },
-			{ name: 'IT-Security Grundlagen', level: 3 }
+			{ name: 'IT security fundamentals', level: 3 }
 		]
 	},
 	{
@@ -171,11 +171,11 @@ const en: SkillCategory[] = [
 		title: 'Electrical Engineering',
 		description: 'Knowledge from my first apprenticeship that helps me in industrial IT.',
 		skills: [
-			{ name: 'Siemens Logo Programmierung', level: 4 },
-			{ name: 'Elektroinstallation', level: 5 },
-			{ name: 'Technische Anlagen', level: 5 },
-			{ name: 'Elektroschemas lesen', level: 5 },
-			{ name: 'NIV / Sicherheitsnormen', level: 4 }
+			{ name: 'Siemens Logo programming', level: 4 },
+			{ name: 'Electrical installation', level: 5 },
+			{ name: 'Technical systems', level: 5 },
+			{ name: 'Reading electrical schematics', level: 5 },
+			{ name: 'NIV / safety standards', level: 4 }
 		]
 	},
 	{

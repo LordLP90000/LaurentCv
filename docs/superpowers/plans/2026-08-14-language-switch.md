@@ -759,7 +759,7 @@ export const skillLegend: Record<Locale, Record<number, string>> = {
 };
 ```
 
-`en` categories: same ids/skills/levels as `de` (skill names are language-neutral); translate `title`/`description`:
+`en` categories: same ids/levels as `de`; skill names are identical to `de` except where the German name is not language-neutral, in which case it is translated; translate `title`/`description`:
 
 | id               | title (en)             | description (en)                                                       |
 | ---------------- | ---------------------- | ---------------------------------------------------------------------- |
@@ -769,6 +769,16 @@ export const skillLegend: Record<Locale, Record<number, string>> = {
 | network-security | Network & Security     | My main focus area — security and infrastructure.                      |
 | electrical       | Electrical Engineering | Knowledge from my first apprenticeship that helps me in industrial IT. |
 | workplace        | Workplace Skills       | Ways of working and collaboration.                                     |
+
+Skill names translated in `en` (all other skill names — and all levels/ids — stay identical to `de`):
+
+- 'Siemens Logo (SPS)' → 'Siemens Logo (PLC)' (languages)
+- 'IT-Security Grundlagen' → 'IT security fundamentals' (network-security)
+- 'Siemens Logo Programmierung' → 'Siemens Logo programming' (electrical)
+- 'Elektroinstallation' → 'Electrical installation' (electrical)
+- 'Technische Anlagen' → 'Technical systems' (electrical)
+- 'Elektroschemas lesen' → 'Reading electrical schematics' (electrical)
+- 'NIV / Sicherheitsnormen' → 'NIV / safety standards' (electrical)
 
 ```ts
 export const skillCategories: Record<Locale, SkillCategory[]> = { de, en };
