@@ -31,9 +31,9 @@
 		<div class="flex flex-col gap-3">
 			<h3 class="text-lg font-semibold">1. Verantwortliche Person</h3>
 			<p class="text-sm leading-relaxed text-muted">
-				{profile.name}<br />
+				{profile.de.name}<br />
 				[PLACEHOLDER — Postadresse]<br />
-				E-Mail: {profile.email}
+				E-Mail: {profile.de.email}
 			</p>
 		</div>
 

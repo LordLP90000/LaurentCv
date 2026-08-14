@@ -11,32 +11,37 @@
 	import JsonLd from '$components/JsonLd.svelte';
 	import { page } from '$app/state';
 	import { profile } from '$data/profile';
+	import { localeOf } from '$lib/i18n';
+	import { ui } from '$data/ui';
 	import type { ActionData } from './$types';
 
 	let { form }: { form: ActionData } = $props();
 
+	const locale = $derived(localeOf(page.params));
+	const t = $derived(ui[locale]);
+	const p = $derived(profile[locale]);
+
 	const personSchema = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'Person',
-		name: profile.name,
-		jobTitle: 'Informatiker in Ausbildung',
-		url: page.url.origin,
+		name: p.name,
+		jobTitle: t.jobTitle,
+		url: `${page.url.origin}${locale === 'en' ? '/en' : '/'}`,
 		image: `${page.url.origin}/profile.jpeg`,
 		address: {
 			'@type': 'PostalAddress',
 			addressLocality: 'Meggen',
 			addressCountry: 'CH'
 		},
-		sameAs: profile.social
-			.filter((s) => s.icon === 'github' || s.icon === 'linkedin')
-			.map((s) => s.href)
+		sameAs: p.social.filter((s) => s.icon === 'github' || s.icon === 'linkedin').map((s) => s.href)
 	});
 </script>
 
 <Seo
-	title={`${profile.name.split(' ')[0]} Scherrer · Informatiker in Ausbildung · CV`}
-	description="Persönlicher CV & Tech Lab von Laurent Scherrer — Informatiker in Ausbildung mit Elektro-Background. Fokus auf IT-Security, Algorithmen und Schnittstellen."
+	title={t.seo.title}
+	description={t.seo.description}
 	type="profile"
+	alternates={{ de: '/', en: '/en' }}
 />
 <JsonLd data={personSchema} />
 
