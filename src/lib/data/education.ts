@@ -54,7 +54,7 @@ const en: Education[] = [
 		id: 'komax-applikationsentwickler',
 		title: 'Software developer EFZ (second apprenticeship)',
 		institution: 'Komax AG · Vocational school',
-		period: '2025 – ongoing',
+		period: '2025 – present',
 		description: 'Second apprenticeship, currently in the third year.',
 		type: 'apprenticeship'
 	},

@@ -12,7 +12,7 @@ export interface SkillCategory {
 	skills: Skill[];
 }
 
-export const skillLegend: Record<Locale, Record<number, string>> = {
+export const skillLegend: Record<Locale, Record<Skill['level'], string>> = {
 	de: {
 		1: 'Grundkenntnisse',
 		2: 'Zusammenhänge verstanden',
@@ -183,10 +183,10 @@ const en: SkillCategory[] = [
 		title: 'Workplace Skills',
 		description: 'Ways of working and collaboration.',
 		skills: [
-			{ name: 'Teamarbeit', level: 4 },
-			{ name: 'Projektmitarbeit', level: 4 },
-			{ name: 'Dokumentation', level: 3 },
-			{ name: '1st-Level Support', level: 1 }
+			{ name: 'Teamwork', level: 4 },
+			{ name: 'Project collaboration', level: 4 },
+			{ name: 'Documentation', level: 3 },
+			{ name: '1st-level support', level: 1 }
 		]
 	}
 ];

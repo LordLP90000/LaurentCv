@@ -655,9 +655,9 @@ const en: Experience[] = [
 		id: 'komax-applikationsentwickler',
 		role: 'Software developer apprentice (second apprenticeship)',
 		company: 'Komax AG',
-		period: '2025 – today',
+		period: '2025 – present',
 		start: '2025',
-		end: 'today',
+		end: 'present',
 		location: 'Dierikon, Switzerland',
 		summary:
 			'Second apprenticeship as a software developer (EFZ) after completing my electrician apprenticeship. Currently in the third year.',
@@ -692,6 +692,8 @@ const en: Experience[] = [
 export const experience: Record<Locale, Experience[]> = { de, en };
 ```
 
+Also flatten the stale `end: string | 'heute';` union on the `Experience` interface to `end: string;` (`de` keeps the literal value `'heute'`; `en` uses `'present'`).
+
 - [ ] **Step 5.2:** `src/lib/data/education.ts` — same pattern; `en`:
 
 ```ts
@@ -700,7 +702,7 @@ const en: Education[] = [
 		id: 'komax-applikationsentwickler',
 		title: 'Software developer EFZ (second apprenticeship)',
 		institution: 'Komax AG · Vocational school',
-		period: '2025 – ongoing',
+		period: '2025 – present',
 		description: 'Second apprenticeship, currently in the third year.',
 		type: 'apprenticeship'
 	},
@@ -741,7 +743,7 @@ export const education: Record<Locale, Education[]> = { de, en };
 - [ ] **Step 5.3:** `src/lib/data/skills.ts` — keep both interfaces; `de` arrays verbatim from current file; key all three exports:
 
 ```ts
-export const skillLegend: Record<Locale, Record<number, string>> = {
+export const skillLegend: Record<Locale, Record<Skill['level'], string>> = {
 	de: {
 		1: 'Grundkenntnisse',
 		2: 'Zusammenhänge verstanden',
@@ -779,6 +781,10 @@ Skill names translated in `en` (all other skill names — and all levels/ids —
 - 'Technische Anlagen' → 'Technical systems' (electrical)
 - 'Elektroschemas lesen' → 'Reading electrical schematics' (electrical)
 - 'NIV / Sicherheitsnormen' → 'NIV / safety standards' (electrical)
+- 'Teamarbeit' → 'Teamwork' (workplace)
+- 'Projektmitarbeit' → 'Project collaboration' (workplace)
+- 'Dokumentation' → 'Documentation' (workplace)
+- '1st-Level Support' → '1st-level support' (workplace, casing only)
 
 ```ts
 export const skillCategories: Record<Locale, SkillCategory[]> = { de, en };
@@ -840,6 +846,8 @@ export const hobbies: Record<Locale, string[]> = {
 git add src/lib/data/experience.ts src/lib/data/education.ts src/lib/data/skills.ts src/lib/data/interests.ts
 git commit -m "feat: locale-keyed experience/education/skills/interests data"
 ```
+
+- [ ] **Step 5.6 (drift guard):** Add `src/lib/data/parity.test.ts` — a plain describe/it vitest (`server` project) covering `sections`, `faq`, `profile` (social length + icon order), `experience`, `education`, `skillLegend`, `skillCategories` (category ids/order, per-category skill count and levels), `languages`, `interestAreas` (priorities), `hobbies`. Asserts `de`/`en` never silently diverge in length, ids/order, or per-locale-invariant values (levels, types, nums, priorities). Commit alongside the Step 5.5 files.
 
 ### Task 6: Data layer C — projects, lab, notes
 

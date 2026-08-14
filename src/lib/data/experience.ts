@@ -6,7 +6,7 @@ export interface Experience {
 	company: string;
 	period: string;
 	start: string;
-	end: string | 'heute';
+	end: string;
 	location?: string;
 	summary: string;
 	highlights: string[];
@@ -57,9 +57,9 @@ const en: Experience[] = [
 		id: 'komax-applikationsentwickler',
 		role: 'Software developer apprentice (second apprenticeship)',
 		company: 'Komax AG',
-		period: '2025 – today',
+		period: '2025 – present',
 		start: '2025',
-		end: 'today',
+		end: 'present',
 		location: 'Dierikon, Switzerland',
 		summary:
 			'Second apprenticeship as a software developer (EFZ) after completing my electrician apprenticeship. Currently in the third year.',
