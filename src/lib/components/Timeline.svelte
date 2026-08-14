@@ -1,11 +1,17 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import Section from './Section.svelte';
+	import { localeOf } from '$lib/i18n';
+	import { ui } from '$data/ui';
 	import { experience } from '$data/experience';
+
+	const locale = $derived(localeOf(page.params));
+	const jobs = $derived(experience[locale]);
 </script>
 
-<Section id="a-werdegang" num="02" title="Werdegang">
+<Section id="a-werdegang" num="02" title={ui[locale].werdegang.title}>
 	<div class="flex flex-col" data-reveal-group data-reveal-step="90">
-		{#each experience as job (job.id)}
+		{#each jobs as job (job.id)}
 			<article
 				class="grid gap-4 border-b border-line py-9 min-[900px]:grid-cols-[200px_1fr] min-[900px]:gap-8"
 			>

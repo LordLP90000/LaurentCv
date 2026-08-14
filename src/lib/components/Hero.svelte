@@ -1,32 +1,35 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import Section from './Section.svelte';
+	import { localeOf } from '$lib/i18n';
+	import { ui } from '$data/ui';
 	import { profile } from '$data/profile';
 	import { hobbies } from '$data/interests';
 
-	const birthYear = profile.birthDate.slice(-4);
-	const birthDay = profile.birthDate.slice(0, 6);
+	const locale = $derived(localeOf(page.params));
+	const t = $derived(ui[locale].profil);
+	const p = $derived(profile[locale]);
 
-	const specs = [
-		{ k: 'NAME', v: profile.name },
-		{ k: 'STANDORT', v: profile.location },
-		{ k: 'JAHRGANG', v: `${birthYear} (* ${birthDay})` },
-		{ k: 'NATIONALITÄT', v: profile.citizenship },
-		{ k: 'SPRACHEN', v: 'DE · IT · EN · FR' },
-		{ k: 'STATUS', v: 'Informatik-Lernender, 3. Lehrjahr · Komax AG' }
-	];
+	const specs = $derived([
+		{ k: t.specName, v: p.name },
+		{ k: t.specLocation, v: p.location },
+		{ k: t.specBirthYear, v: `${p.birthDate.slice(-4)} (* ${p.birthDate.slice(0, 6)})` },
+		{ k: t.specNationality, v: p.citizenship },
+		{ k: t.specLanguages, v: t.languagesValue },
+		{ k: t.specStatus, v: t.statusValue }
+	]);
 
 	const tracePath = 'M0 20 H180 L200 8 H320 L340 20 H480 V32 H620 L640 20 H800';
 </script>
 
-<Section id="a-profil" num="01" title="Profil" first>
+<Section id="a-profil" num="01" title={t.title} first>
 	<h1
 		class="text-[clamp(2.5rem,7.5vw,5.5rem)] leading-none font-bold tracking-[-0.035em] text-balance"
 	>
-		Strom verstanden.<br /><span class="text-copper">Jetzt Code.</span>
+		{t.headline1}<br /><span class="text-copper">{t.headline2}</span>
 	</h1>
 	<p class="mt-7 max-w-[600px] text-lg leading-[1.65] text-muted">
-		Vier Jahre Elektroinstallation, jetzt Zweitausbildung zum Informatiker bei der Komax AG. Mein
-		besonderes Interesse gilt IT-Security, Algorithmen und der Kommunikation zwischen Systemen.
+		{t.intro}
 	</p>
 
 	<svg
@@ -76,21 +79,20 @@
 				></span>
 				<img
 					src="/profile.jpeg"
-					alt="Porträt von Laurent Scherrer"
+					alt={t.portraitAlt}
 					class="block h-auto w-full contrast-[1.03] saturate-[.85]"
 				/>
 			</div>
 			<figcaption class="mt-2.5 text-center font-mono text-[11px] tracking-[0.08em] text-muted">
-				ABB. 1 — SCHERRER, LAURENT LUCIEN
+				{t.portraitCaption}
 			</figcaption>
 		</figure>
 	</div>
 
-	<p class="mt-8 max-w-[640px] leading-[1.7]">{profile.bio}</p>
+	<p class="mt-8 max-w-[640px] leading-[1.7]">{p.bio}</p>
 
 	<p class="mt-6 max-w-[640px] text-sm leading-[1.7] text-muted">
-		<span class="font-mono text-[11px] tracking-[0.12em] text-copper"
-			>AUSSERHALB DES BÜROS&nbsp;&nbsp;</span
-		>{hobbies.join(' · ')}
+		<span class="font-mono text-[11px] tracking-[0.12em] text-copper">{t.offWork}&nbsp;&nbsp;</span
+		>{hobbies[locale].join(' · ')}
 	</p>
 </Section>

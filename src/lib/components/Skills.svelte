@@ -1,19 +1,23 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import Section from './Section.svelte';
+	import { localeOf } from '$lib/i18n';
+	import { ui } from '$data/ui';
 	import { skillCategories, languages } from '$data/skills';
 	import { interestAreas } from '$data/interests';
+
+	const locale = $derived(localeOf(page.params));
+	const t = $derived(ui[locale].skills);
+	const cats = $derived(skillCategories[locale]);
+	const langs = $derived(languages[locale]);
+	const areas = $derived(interestAreas[locale]);
 
 	const ticks = [1, 2, 3, 4, 5] as const;
 </script>
 
-<Section
-	id="a-skills"
-	num="03"
-	title="Skills"
-	lead="Skills aus beiden Ausbildungen. Die Levels folgen der Skala aus meinem offiziellen Lebenslauf — L1 Grundkenntnisse bis L5 Experte."
->
+<Section id="a-skills" num="03" title={t.title} lead={t.lead}>
 	<div class="grid gap-x-16 min-[900px]:grid-cols-2">
-		{#each skillCategories as g (g.id)}
+		{#each cats as g (g.id)}
 			<div class="mb-11">
 				<h3
 					class="flex items-baseline justify-between border-b border-line-strong pb-2.5 font-mono text-xs font-medium tracking-[0.1em]"
@@ -43,10 +47,10 @@
 	<div class="mt-2 grid gap-x-16 gap-y-11 min-[900px]:grid-cols-2">
 		<div>
 			<h3 class="border-b border-line-strong pb-2.5 font-mono text-xs font-medium tracking-[0.1em]">
-				SPRACHEN
+				{t.languagesTitle}
 			</h3>
 			<ul>
-				{#each languages as l (l.name)}
+				{#each langs as l (l.name)}
 					<li class="flex justify-between gap-3 border-b border-line py-2 text-sm">
 						<span class="font-medium">{l.name}</span>
 						<span class="text-right font-mono text-xs text-muted">{l.level.toUpperCase()}</span>
@@ -56,10 +60,10 @@
 		</div>
 		<div>
 			<h3 class="border-b border-line-strong pb-2.5 font-mono text-xs font-medium tracking-[0.1em]">
-				INTERESSENSCHWERPUNKTE
+				{t.interestsTitle}
 			</h3>
 			<ol>
-				{#each interestAreas as i (i.priority)}
+				{#each areas as i (i.priority)}
 					<li class="border-b border-line py-3">
 						<p class="text-sm font-semibold">
 							<span class="mr-2.5 font-mono text-copper">{i.priority}</span>{i.title}
