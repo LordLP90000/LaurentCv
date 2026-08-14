@@ -21,7 +21,7 @@ export const experience: Experience[] = [
 		end: 'heute',
 		location: 'Dierikon, Schweiz',
 		summary:
-			'Zweitausbildung zum Applikationsentwickler EFZ nach abgeschlossener Lehre als Elektroinstallateur. Aktuell im zweiten Lehrjahr.',
+			'Zweitausbildung zum Applikationsentwickler EFZ nach abgeschlossener Lehre als Elektroinstallateur. Aktuell im dritten Lehrjahr.',
 		highlights: [
 			'Arbeit in diversen Programmiersprachen und Technologien',
 			'Einblick in Schnittstellen, Frontend-Entwicklung und Security',

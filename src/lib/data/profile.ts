@@ -30,7 +30,7 @@ export const profile: Profile = {
 	phone: '+41 76 511 98 45',
 	birthDate: '09.04.2005',
 	citizenship: 'CH / IT',
-	bio: `Nach meiner vierjährigen Erstausbildung zum Elektroinstallateur EFZ bringe ich ein fundiertes Verständnis für technische Anlagen, elektrische Systeme und industrielle Abläufe mit. Die Arbeit mit Siemens Logo Steuerungen hat mein Interesse an der Informatik geweckt — aktuell bin ich im zweiten Lehrjahr meiner Zweitausbildung als Informatiker bei der Komax AG. Mein besonderes Interesse gilt IT-Security, Algorithmen und der Kommunikation zwischen Systemen.`,
+	bio: `Nach meiner vierjährigen Erstausbildung zum Elektroinstallateur EFZ bringe ich ein fundiertes Verständnis für technische Anlagen, elektrische Systeme und industrielle Abläufe mit. Die Arbeit mit Siemens Logo Steuerungen hat mein Interesse an der Informatik geweckt — aktuell bin ich im dritten Lehrjahr meiner Zweitausbildung als Informatiker bei der Komax AG. Mein besonderes Interesse gilt IT-Security, Algorithmen und der Kommunikation zwischen Systemen.`,
 	social: [
 		{ label: 'GitHub', href: 'https://github.com/LordLP90000', icon: 'github' },
 		{

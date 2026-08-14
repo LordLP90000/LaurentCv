@@ -11,7 +11,7 @@ export const faq: FaqEntry[] = [
 	{
 		question: 'Wo stehst du gerade in deiner Ausbildung?',
 		answer:
-			'Ich bin im zweiten Lehrjahr meiner Zweitausbildung zum Applikationsentwickler EFZ bei der Komax AG. Davor habe ich eine vierjährige Lehre als Elektroinstallateur EFZ abgeschlossen.'
+			'Ich bin im dritten Lehrjahr meiner Zweitausbildung zum Applikationsentwickler EFZ bei der Komax AG. Davor habe ich eine vierjährige Lehre als Elektroinstallateur EFZ abgeschlossen.'
 	},
 	{
 		question: 'Für welche Anfragen bist du offen?',

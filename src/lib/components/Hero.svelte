@@ -13,7 +13,7 @@
 		{ k: 'JAHRGANG', v: `${birthYear} (* ${birthDay})` },
 		{ k: 'NATIONALITÄT', v: profile.citizenship },
 		{ k: 'SPRACHEN', v: 'DE · IT · EN · FR' },
-		{ k: 'STATUS', v: 'Informatik-Lernender, 2. Lehrjahr · Komax AG' },
+		{ k: 'STATUS', v: 'Informatik-Lernender, 3. Lehrjahr · Komax AG' },
 		{ k: 'ANTWORTZEIT', v: `innerhalb von ${responseTime}` }
 	];
 

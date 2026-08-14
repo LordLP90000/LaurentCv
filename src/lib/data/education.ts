@@ -13,7 +13,7 @@ export const education: Education[] = [
 		title: 'Applikationsentwickler EFZ (Zweitausbildung)',
 		institution: 'Komax AG · Berufsschule',
 		period: '2025 – laufend',
-		description: 'Zweitausbildung, aktuell im zweiten Lehrjahr.',
+		description: 'Zweitausbildung, aktuell im dritten Lehrjahr.',
 		type: 'apprenticeship'
 	},
 	{
