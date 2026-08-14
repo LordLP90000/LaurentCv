@@ -226,10 +226,8 @@ const de = {
 		specNationality: 'NATIONALITÄT',
 		specLanguages: 'SPRACHEN',
 		specStatus: 'STATUS',
-		specResponseTime: 'ANTWORTZEIT',
 		languagesValue: 'DE · IT · EN · FR',
 		statusValue: 'Informatik-Lernender, 3. Lehrjahr · Komax AG',
-		responseTimeValue: 'innerhalb von 48 Stunden',
 		portraitAlt: 'Porträt von Laurent Scherrer',
 		portraitCaption: 'ABB. 1 — SCHERRER, LAURENT LUCIEN',
 		offWork: 'AUSSERHALB DES BÜROS'
@@ -359,10 +357,8 @@ const en: UiStrings = {
 		specNationality: 'NATIONALITY',
 		specLanguages: 'LANGUAGES',
 		specStatus: 'STATUS',
-		specResponseTime: 'RESPONSE TIME',
 		languagesValue: 'DE · IT · EN · FR',
 		statusValue: 'IT apprentice, 3rd year · Komax AG',
-		responseTimeValue: 'within 48 hours',
 		portraitAlt: 'Portrait of Laurent Scherrer',
 		portraitCaption: 'FIG. 1 — SCHERRER, LAURENT LUCIEN',
 		offWork: 'OUTSIDE THE OFFICE'
@@ -523,7 +519,7 @@ export const publicPages: PublicPage[] = [
 /** Paths that exist but must not be crawled or indexed. */
 export const privatePaths = ['/api/', '/danke', '/en/danke'];
 
-/** Response-time window shown in the spec table, Kontakt section and FAQ. */
+/** Response-time window shown in the Kontakt section and FAQ. */
 export const responseTime: Record<Locale, string> = { de: '48 Stunden', en: '48 hours' };
 export const responseTimePromise: Record<Locale, string> = {
 	de: 'Ich antworte innerhalb von 48 Stunden.',
@@ -1015,8 +1011,7 @@ git commit -m "feat: one-pager + danke under [[lang=lang]]; locale-aware contact
 		{ k: t.specBirthYear, v: `${p.birthDate.slice(-4)} (* ${p.birthDate.slice(0, 6)})` },
 		{ k: t.specNationality, v: p.citizenship },
 		{ k: t.specLanguages, v: t.languagesValue },
-		{ k: t.specStatus, v: t.statusValue },
-		{ k: t.specResponseTime, v: t.responseTimeValue }
+		{ k: t.specStatus, v: t.statusValue }
 	]);
 
 	const tracePath = 'M0 20 H180 L200 8 H320 L340 20 H480 V32 H620 L640 20 H800';

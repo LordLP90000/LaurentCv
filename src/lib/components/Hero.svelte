@@ -2,7 +2,6 @@
 	import Section from './Section.svelte';
 	import { profile } from '$data/profile';
 	import { hobbies } from '$data/interests';
-	import { responseTime } from '$data/site';
 
 	const birthYear = profile.birthDate.slice(-4);
 	const birthDay = profile.birthDate.slice(0, 6);
@@ -13,8 +12,7 @@
 		{ k: 'JAHRGANG', v: `${birthYear} (* ${birthDay})` },
 		{ k: 'NATIONALITÄT', v: profile.citizenship },
 		{ k: 'SPRACHEN', v: 'DE · IT · EN · FR' },
-		{ k: 'STATUS', v: 'Informatik-Lernender, 3. Lehrjahr · Komax AG' },
-		{ k: 'ANTWORTZEIT', v: `innerhalb von ${responseTime}` }
+		{ k: 'STATUS', v: 'Informatik-Lernender, 3. Lehrjahr · Komax AG' }
 	];
 
 	const tracePath = 'M0 20 H180 L200 8 H320 L340 20 H480 V32 H620 L640 20 H800';
