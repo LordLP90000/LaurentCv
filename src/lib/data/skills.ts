@@ -21,7 +21,7 @@ export const skillLegend: Record<number, string> = {
 export const skillCategories: SkillCategory[] = [
 	{
 		id: 'languages',
-		title: 'Sprachen',
+		title: 'Sprachen & Markup',
 		description: 'Programmier- und Auszeichnungssprachen, mit denen ich arbeite.',
 		skills: [
 			{ name: 'C#', level: 3 },

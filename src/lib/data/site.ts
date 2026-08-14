@@ -10,22 +10,12 @@ export interface PublicPage {
 
 export const publicPages: PublicPage[] = [
 	{ path: '/', priority: 1.0 },
-	{ path: '/about', priority: 0.9 },
-	{ path: '/experience', priority: 0.9 },
-	{ path: '/skills', priority: 0.8 },
-	{ path: '/projects', priority: 0.8 },
-	{ path: '/education', priority: 0.7 },
-	{ path: '/lab', priority: 0.5 },
-	{ path: '/notes', priority: 0.5 },
-	{ path: '/contact', priority: 0.9 },
 	{ path: '/datenschutz', priority: 0.3 }
 ];
 
 /** Paths that exist but must not be crawled or indexed. */
 export const privatePaths = ['/api/', '/danke'];
 
-/**
- * Response-time promise shown next to every contact CTA and form.
- * [X] is a placeholder — replace with the real window, e.g. "24 Stunden" or "2 Werktagen".
- */
-export const responseTimePromise = 'Ich antworte innerhalb von [X].';
+/** Response-time window shown in the spec table, Kontakt section and FAQ. */
+export const responseTime = '48 Stunden';
+export const responseTimePromise = `Ich antworte innerhalb von ${responseTime}.`;

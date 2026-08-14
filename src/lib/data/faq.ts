@@ -11,7 +11,7 @@ export const faq: FaqEntry[] = [
 	{
 		question: 'Wo stehst du gerade in deiner Ausbildung?',
 		answer:
-			'Ich bin im zweiten Lehrjahr meiner Zweitausbildung zum Applikationsentwickler EFZ bei der Komax AG. Davor habe ich eine vierjährige Lehre als Elektroinstallateur EFZ abgeschlossen. Voraussichtlicher Lehrabschluss: [PLACEHOLDER — Jahr].'
+			'Ich bin im zweiten Lehrjahr meiner Zweitausbildung zum Applikationsentwickler EFZ bei der Komax AG. Davor habe ich eine vierjährige Lehre als Elektroinstallateur EFZ abgeschlossen.'
 	},
 	{
 		question: 'Für welche Anfragen bist du offen?',
@@ -31,6 +31,6 @@ export const faq: FaqEntry[] = [
 	{
 		question: 'Wie erreiche ich dich am besten?',
 		answer:
-			'Am einfachsten über das Kontaktformular oder per E-Mail. Ich antworte innerhalb von [X].'
+			'Am einfachsten über das Kontaktformular oder per E-Mail. Ich antworte innerhalb von 48 Stunden.'
 	}
 ];
