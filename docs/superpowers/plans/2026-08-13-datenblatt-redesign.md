@@ -9,6 +9,7 @@
 **Tech Stack:** SvelteKit 2 (Svelte 5 runes), Tailwind 4 (`@theme` tokens), @fontsource, Vitest, adapter-vercel.
 
 **Conventions used throughout:**
+
 - Breakpoint for the sidebar is `min-[900px]:` (Tailwind arbitrary variant).
 - Color utilities (`text-copper`, `border-line`, `bg-paper`, …) come from the `@theme` block in Task 3 and flip automatically with `.dark` because they reference runtime CSS vars.
 - Token rename map for kept files: `--surface→--paper`, `--surface-muted→--card`, `--surface-elevated→--card`, `--text→--ink`, `--text-muted→--muted`, `--border→--line`, `--accent→--copper`, `--accent-soft→--copper-soft`, `--highlight→--copper`, `--ring→--copper-soft`.
@@ -26,6 +27,7 @@
 ### Task 1: Retired-route redirects (TDD)
 
 **Files:**
+
 - Test: `src/hooks.server.test.ts`
 - Create: `src/hooks.server.ts`
 
@@ -109,6 +111,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 ### Task 2: Data layer
 
 **Files:**
+
 - Rewrite: `src/lib/data/navigation.ts`
 - Modify: `src/lib/data/site.ts`, `src/lib/data/faq.ts`, `src/lib/data/skills.ts:24`
 - Create: `src/lib/data/lab.ts`, `src/lib/data/notes.ts`
@@ -211,6 +214,7 @@ export const notes: Note[] = [
 ### Task 3: Design tokens + fonts (`layout.css`) and `app.html`
 
 **Files:**
+
 - Rewrite: `src/routes/layout.css`
 - Modify: `src/app.html:7` (theme-color)
 
@@ -369,6 +373,7 @@ a {
 ### Task 4: ThemeToggle + Section
 
 **Files:**
+
 - Rewrite: `src/lib/components/ThemeToggle.svelte`, `src/lib/components/Section.svelte`
 
 - [ ] **Step 4.1:** `ThemeToggle.svelte`:
@@ -409,7 +414,9 @@ a {
 <section
 	{id}
 	data-reveal
-	class={first ? 'pt-10 min-[900px]:pt-22' : 'mt-24 border-t border-line-strong pt-8 min-[900px]:mt-30'}
+	class={first
+		? 'pt-10 min-[900px]:pt-22'
+		: 'mt-24 border-t border-line-strong pt-8 min-[900px]:mt-30'}
 >
 	<h2 class="mb-5 font-mono text-xs tracking-[0.12em] text-copper">
 		{num} — {title.toUpperCase()}
@@ -426,6 +433,7 @@ a {
 ### Task 5: Sidebar (desktop rail, mobile top bar, scrollspy)
 
 **Files:**
+
 - Create: `src/lib/components/Sidebar.svelte`
 
 - [ ] **Step 5.1:**
@@ -562,6 +570,7 @@ a {
 ### Task 6: Layout shell
 
 **Files:**
+
 - Rewrite: `src/routes/+layout.svelte`
 
 - [ ] **Step 6.1:**
@@ -595,6 +604,7 @@ a {
 ### Task 7: Hero → section 01 Profil
 
 **Files:**
+
 - Rewrite: `src/lib/components/Hero.svelte`
 
 - [ ] **Step 7.1:**
@@ -653,7 +663,9 @@ a {
 		<circle cx="180" cy="20" r="3" fill="var(--line-strong)" />
 	</svg>
 
-	<div class="mt-10 grid items-start gap-10 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(200px,300px)] min-[900px]:gap-14">
+	<div
+		class="mt-10 grid items-start gap-10 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(200px,300px)] min-[900px]:gap-14"
+	>
 		<dl>
 			{#each specs as s (s.k)}
 				<div
@@ -661,16 +673,21 @@ a {
 				>
 					<dt class="self-baseline font-mono text-xs tracking-[0.1em] text-muted">{s.k}</dt>
 					<dd class="m-0 text-[15px] font-medium">{s.v}</dd>
-			</div>
+				</div>
 			{/each}
 		</dl>
 
 		<figure class="mx-auto w-full max-w-[300px] min-[900px]:mx-0">
 			<div class="relative p-3.5">
-				<span class="absolute top-0 left-0 h-[18px] w-[18px] border-t-2 border-l-2 border-copper"></span>
-				<span class="absolute top-0 right-0 h-[18px] w-[18px] border-t-2 border-r-2 border-copper"></span>
-				<span class="absolute bottom-0 left-0 h-[18px] w-[18px] border-b-2 border-l-2 border-copper"></span>
-				<span class="absolute right-0 bottom-0 h-[18px] w-[18px] border-r-2 border-b-2 border-copper"></span>
+				<span class="absolute top-0 left-0 h-[18px] w-[18px] border-t-2 border-l-2 border-copper"
+				></span>
+				<span class="absolute top-0 right-0 h-[18px] w-[18px] border-t-2 border-r-2 border-copper"
+				></span>
+				<span class="absolute bottom-0 left-0 h-[18px] w-[18px] border-b-2 border-l-2 border-copper"
+				></span>
+				<span
+					class="absolute right-0 bottom-0 h-[18px] w-[18px] border-r-2 border-b-2 border-copper"
+				></span>
 				<img
 					src="/profile.jpeg"
 					alt="Porträt von Laurent Scherrer"
@@ -686,7 +703,8 @@ a {
 	<p class="mt-8 max-w-[640px] leading-[1.7]">{profile.bio}</p>
 
 	<p class="mt-6 max-w-[640px] text-sm leading-[1.7] text-muted">
-		<span class="font-mono text-[11px] tracking-[0.12em] text-copper">AUSSERHALB DES BÜROS&nbsp;&nbsp;</span
+		<span class="font-mono text-[11px] tracking-[0.12em] text-copper"
+			>AUSSERHALB DES BÜROS&nbsp;&nbsp;</span
 		>{hobbies.join(' · ')}
 	</p>
 </Section>
@@ -697,6 +715,7 @@ a {
 ### Task 8: Timeline → section 02 Werdegang
 
 **Files:**
+
 - Rewrite: `src/lib/components/Timeline.svelte`
 
 - [ ] **Step 8.1:**
@@ -710,7 +729,9 @@ a {
 <Section id="a-werdegang" num="02" title="Werdegang">
 	<div class="flex flex-col" data-reveal-group data-reveal-step="90">
 		{#each experience as job (job.id)}
-			<article class="grid gap-4 border-b border-line py-9 min-[900px]:grid-cols-[200px_1fr] min-[900px]:gap-8">
+			<article
+				class="grid gap-4 border-b border-line py-9 min-[900px]:grid-cols-[200px_1fr] min-[900px]:gap-8"
+			>
 				<div>
 					<p class="font-mono text-[13px]">{job.period}</p>
 					{#if job.location}
@@ -743,6 +764,7 @@ a {
 ### Task 9: Skills → section 03
 
 **Files:**
+
 - Rewrite: `src/lib/components/Skills.svelte`
 
 - [ ] **Step 9.1:**
@@ -768,7 +790,9 @@ a {
 				<h3
 					class="flex items-baseline justify-between border-b border-line-strong pb-2.5 font-mono text-xs font-medium tracking-[0.1em]"
 				>
-					{g.title.toUpperCase()}<span class="text-muted">{String(g.skills.length).padStart(2, '0')}</span>
+					{g.title.toUpperCase()}<span class="text-muted"
+						>{String(g.skills.length).padStart(2, '0')}</span
+					>
 				</h3>
 				<ul>
 					{#each g.skills as s (s.name)}
@@ -826,6 +850,7 @@ a {
 ### Task 10: Projects → section 04
 
 **Files:**
+
 - Rewrite: `src/lib/components/Projects.svelte`
 
 - [ ] **Step 10.1:**
@@ -851,7 +876,9 @@ a {
 >
 	<div class="flex flex-col" data-reveal-group data-reveal-step="90">
 		{#each projects as p (p.id)}
-			<article class="grid gap-4 border-b border-line py-9 min-[900px]:grid-cols-[200px_1fr] min-[900px]:gap-8">
+			<article
+				class="grid gap-4 border-b border-line py-9 min-[900px]:grid-cols-[200px_1fr] min-[900px]:gap-8"
+			>
 				<div>
 					<p class="font-mono text-[13px]">{p.year}</p>
 					<p class="mt-1.5 font-mono text-xs text-copper">{statusLabel[p.status]}</p>
@@ -886,6 +913,7 @@ a {
 ### Task 11: Education → section 05
 
 **Files:**
+
 - Rewrite: `src/lib/components/Education.svelte`
 
 - [ ] **Step 11.1:**
@@ -928,6 +956,7 @@ a {
 ### Task 12: Lab (06) + Notes (07) components
 
 **Files:**
+
 - Create: `src/lib/components/Lab.svelte`, `src/lib/components/Notes.svelte`
 
 - [ ] **Step 12.1:** `Lab.svelte`:
@@ -1007,6 +1036,7 @@ a {
 ### Task 13: Faq restyle + Contact → section 08
 
 **Files:**
+
 - Rewrite: `src/lib/components/Faq.svelte` (drops its Section wrapper — now embedded in Contact)
 - Rewrite: `src/lib/components/Contact.svelte`
 
@@ -1127,11 +1157,24 @@ a {
 		<div class="grid gap-4 sm:grid-cols-2">
 			<label class="flex flex-col gap-1 text-sm">
 				<span class="font-mono text-[11px] tracking-[0.1em] text-muted">NAME</span>
-				<input type="text" name="name" required minlength="2" value={form?.values?.name ?? ''} class={inputClass} />
+				<input
+					type="text"
+					name="name"
+					required
+					minlength="2"
+					value={form?.values?.name ?? ''}
+					class={inputClass}
+				/>
 			</label>
 			<label class="flex flex-col gap-1 text-sm">
 				<span class="font-mono text-[11px] tracking-[0.1em] text-muted">E-MAIL</span>
-				<input type="email" name="email" required value={form?.values?.email ?? ''} class={inputClass} />
+				<input
+					type="email"
+					name="email"
+					required
+					value={form?.values?.email ?? ''}
+					class={inputClass}
+				/>
 			</label>
 		</div>
 		<label class="flex flex-col gap-1 text-sm">
@@ -1169,6 +1212,7 @@ a {
 ### Task 14: One-pager route, form action move, deletions, sitemap
 
 **Files:**
+
 - Rewrite: `src/routes/+page.svelte`
 - Create: `src/routes/+page.server.ts` (moved from `src/routes/contact/+page.server.ts`)
 - Delete: route dirs `about/ experience/ skills/ projects/ education/ lab/ notes/ contact/`
@@ -1242,6 +1286,7 @@ git rm src/lib/components/Header.svelte src/lib/components/Footer.svelte src/lib
 ### Task 15: Kept-page restyle sweep (error, danke, datenschutz, CookieConsent)
 
 **Files:**
+
 - Modify: `src/routes/+error.svelte`, `src/routes/danke/+page.svelte`, `src/routes/datenschutz/+page.svelte`, `src/lib/components/CookieConsent.svelte`
 
 - [ ] **Step 15.1:** `+error.svelte` — replace gradient/pill styling with Datenblatt idiom; drop the dead `/contact` link:
@@ -1279,7 +1324,10 @@ git rm src/lib/components/Header.svelte src/lib/components/Footer.svelte src/lib
 	</p>
 	<div class="mt-10 flex flex-wrap gap-6 text-sm font-medium">
 		<a href={resolve('/')} class="border-b border-copper pb-0.5 text-copper">Zur Startseite →</a>
-		<a href="{resolve('/')}#a-kontakt" class="border-b border-line-strong pb-0.5 transition-colors hover:border-copper hover:text-copper">
+		<a
+			href="{resolve('/')}#a-kontakt"
+			class="border-b border-line-strong pb-0.5 transition-colors hover:border-copper hover:text-copper"
+		>
 			Kontakt →
 		</a>
 	</div>
@@ -1312,7 +1360,10 @@ git rm src/lib/components/Header.svelte src/lib/components/Footer.svelte src/lib
 	</p>
 	<div class="mt-10 flex flex-wrap gap-6 text-sm font-medium">
 		<a href={resolve('/')} class="border-b border-copper pb-0.5 text-copper">Zur Startseite →</a>
-		<a href="{resolve('/')}#a-projekte" class="border-b border-line-strong pb-0.5 transition-colors hover:border-copper hover:text-copper">
+		<a
+			href="{resolve('/')}#a-projekte"
+			class="border-b border-line-strong pb-0.5 transition-colors hover:border-copper hover:text-copper"
+		>
 			Projekte ansehen →
 		</a>
 	</div>
@@ -1340,7 +1391,10 @@ git rm src/lib/components/Header.svelte src/lib/components/Footer.svelte src/lib
 		<p class="text-sm leading-relaxed">
 			Ich würde gerne mit Google Analytics verstehen, wie diese Seite genutzt wird — aber nur mit
 			deinem Einverständnis. Ohne Zustimmung wird nichts geladen.
-			<a href={resolve('/datenschutz')} class="text-muted underline transition-colors hover:text-copper">
+			<a
+				href={resolve('/datenschutz')}
+				class="text-muted underline transition-colors hover:text-copper"
+			>
 				Mehr dazu in der Datenschutzerklärung.
 			</a>
 		</p>

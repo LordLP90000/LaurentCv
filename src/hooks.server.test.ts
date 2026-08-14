@@ -16,7 +16,7 @@ const redirects: Array<[string, string]> = [
 function invoke(pathname: string) {
 	const event = { url: new URL(`http://localhost${pathname}`) } as unknown as RequestEvent;
 	const resolve = async () => new Response('ok');
-	return handle({ event, resolve } as never);
+	return Promise.resolve(handle({ event, resolve } as never));
 }
 
 describe('hooks.server handle', () => {

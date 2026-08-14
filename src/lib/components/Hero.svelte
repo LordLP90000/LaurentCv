@@ -73,7 +73,8 @@
 				></span>
 				<span class="absolute bottom-0 left-0 h-[18px] w-[18px] border-b-2 border-l-2 border-copper"
 				></span>
-				<span class="absolute right-0 bottom-0 h-[18px] w-[18px] border-r-2 border-b-2 border-copper"
+				<span
+					class="absolute right-0 bottom-0 h-[18px] w-[18px] border-r-2 border-b-2 border-copper"
 				></span>
 				<img
 					src="/profile.jpeg"

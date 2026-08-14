@@ -13,26 +13,26 @@ Task 14). Until then those pages are unreachable on this branch. `main` is untou
 
 ## Commits on the branch
 
-| SHA | Task | What |
-|---|---|---|
-| `d8f71a3` | 0 | Removed `@fontsource/fira-mono`; added `@fontsource/archivo@5.3.0` + `@fontsource/ibm-plex-mono@5.3.0` |
-| `6b9054b` | 1 | `src/hooks.server.ts` + `src/hooks.server.test.ts` — 301 redirect map, **10/10 tests passing** |
+| SHA       | Task | What                                                                                                   |
+| --------- | ---- | ------------------------------------------------------------------------------------------------------ |
+| `d8f71a3` | 0    | Removed `@fontsource/fira-mono`; added `@fontsource/archivo@5.3.0` + `@fontsource/ibm-plex-mono@5.3.0` |
+| `6b9054b` | 1    | `src/hooks.server.ts` + `src/hooks.server.test.ts` — 301 redirect map, **10/10 tests passing**         |
 
 On `main` (already merged, docs only): `65e4a0f` design spec, `d1cdbf3` implementation plan.
 
 ## Decisions locked in (from brainstorming)
 
-| Topic | Decision |
-|---|---|
-| Structure | Pure one-pager at `/` with sections 01–08; `/datenschutz` + `/danke` kept |
-| Contact form | **Kept** — moves into section 08, action moves to `src/routes/+page.server.ts` |
-| Retired routes | 301 → anchors via `hooks.server.ts` ✅ done |
-| Mobile (<900px) | Fixed top bar (name · section num · theme toggle · INDEX) + full-screen 01–08 overlay |
-| Old effects | All removed (bg-drift, scroll-progress, tilt-card, rotating tagline, StickyCta); reveal-on-scroll kept |
-| Contact email | `laurent.scherrer@gmx.ch` — the mockup's komaxgroup.com address is deliberately **not** used |
-| Response time | "48 Stunden" replaces every `[X]` placeholder |
-| Approach | A — in-place rewrite, one coherent merge |
-| Fonts | Self-hosted (no Google CDN — GDPR, since the site runs consent-gated GA4) |
+| Topic           | Decision                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------ |
+| Structure       | Pure one-pager at `/` with sections 01–08; `/datenschutz` + `/danke` kept                              |
+| Contact form    | **Kept** — moves into section 08, action moves to `src/routes/+page.server.ts`                         |
+| Retired routes  | 301 → anchors via `hooks.server.ts` ✅ done                                                            |
+| Mobile (<900px) | Fixed top bar (name · section num · theme toggle · INDEX) + full-screen 01–08 overlay                  |
+| Old effects     | All removed (bg-drift, scroll-progress, tilt-card, rotating tagline, StickyCta); reveal-on-scroll kept |
+| Contact email   | `laurent.scherrer@gmx.ch` — the mockup's komaxgroup.com address is deliberately **not** used           |
+| Response time   | "48 Stunden" replaces every `[X]` placeholder                                                          |
+| Approach        | A — in-place rewrite, one coherent merge                                                               |
+| Fonts           | Self-hosted (no Google CDN — GDPR, since the site runs consent-gated GA4)                              |
 
 ## Remaining work — pick up at Task 2
 
@@ -43,7 +43,7 @@ Every remaining task has complete, copy-pasteable code in the plan document. Res
 - **Task 2 — Data layer.** Rewrite `navigation.ts` → `sections[]`; `site.ts` → `responseTime`/
   `responseTimePromise` + 2-entry `publicPages`; `faq.ts` placeholder removal + 48h; `skills.ts`
   category rename `Sprachen` → `Sprachen & Markup`; create `lab.ts` + `notes.ts`; delete
-  `testimonials.ts` + `caseStudies.ts`. *(Type errors are expected after this task and resolve by Task 14.)*
+  `testimonials.ts` + `caseStudies.ts`. _(Type errors are expected after this task and resolve by Task 14.)_
 - **Task 3 — `layout.css` full rewrite** (paper/ink/copper tokens, Archivo + IBM Plex Mono
   `@import`s, `.spec-row`, `pulseflow`, simplified `.reveal`) + `app.html` `theme-color` → `#151412`.
 - **Task 4 — `ThemeToggle` (text button) + `Section` (numbered eyebrow wrapper).**
