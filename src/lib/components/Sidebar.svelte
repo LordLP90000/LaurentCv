@@ -89,6 +89,7 @@
 		<div class="flex items-center gap-2">
 			<ThemeToggle />
 			<div
+				role="group"
 				class="flex items-center gap-2 font-mono text-[11px] tracking-[0.1em]"
 				aria-label={t.langLabel}
 			>
@@ -113,7 +114,7 @@
 	</div>
 </aside>
 
-<!-- Mobile top bar (stays above the overlay so INDEX/SCHLIESSEN keeps working) -->
+<!-- Mobile top bar (stays above the overlay so the index toggle keeps working) -->
 <header
 	class="fixed inset-x-0 top-0 z-40 flex items-center gap-3 border-b border-line bg-paper px-4 py-3 min-[900px]:hidden"
 >
@@ -121,9 +122,10 @@
 	{#if onHome}
 		<span class="font-mono text-[11px] text-copper" aria-hidden="true">{activeNum}</span>
 	{/if}
-	<div class="ml-auto flex items-center gap-3">
-		<ThemeToggle />
+	<div class="ml-auto flex items-center gap-2">
+		<ThemeToggle compact />
 		<div
+			role="group"
 			class="flex items-center gap-2 font-mono text-[11px] tracking-[0.1em]"
 			aria-label={t.langLabel}
 		>

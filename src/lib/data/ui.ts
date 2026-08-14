@@ -20,7 +20,13 @@ const de = {
 		indexToggleLabel: 'Index umschalten',
 		langLabel: 'Sprache wechseln'
 	},
-	theme: { dark: 'MODUS: DUNKEL', light: 'MODUS: HELL', label: 'Farbschema wechseln' },
+	theme: {
+		dark: 'MODUS: DUNKEL',
+		light: 'MODUS: HELL',
+		darkShort: 'DUNKEL',
+		lightShort: 'HELL',
+		label: 'Farbschema wechseln'
+	},
 	profil: {
 		title: 'Profil',
 		headline1: 'Strom verstanden.',
@@ -151,7 +157,13 @@ const en: UiStrings = {
 		indexToggleLabel: 'Toggle index',
 		langLabel: 'Switch language'
 	},
-	theme: { dark: 'MODE: DARK', light: 'MODE: LIGHT', label: 'Switch color scheme' },
+	theme: {
+		dark: 'MODE: DARK',
+		light: 'MODE: LIGHT',
+		darkShort: 'DARK',
+		lightShort: 'LIGHT',
+		label: 'Switch color scheme'
+	},
 	profil: {
 		title: 'Profile',
 		headline1: 'Electricity understood.',
