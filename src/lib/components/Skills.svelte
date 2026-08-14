@@ -1,117 +1,73 @@
 <script lang="ts">
-	import { skillCategories, skillLegend, languages } from '$data/skills';
-	import { interestAreas } from '$data/interests';
 	import Section from './Section.svelte';
+	import { skillCategories, languages } from '$data/skills';
+	import { interestAreas } from '$data/interests';
 
-	let active = $state(skillCategories[0].id);
-	const current = $derived(skillCategories.find((c) => c.id === active) ?? skillCategories[0]);
+	const ticks = [1, 2, 3, 4, 5] as const;
 </script>
 
 <Section
-	id="skills"
-	eyebrow="Skills"
-	title="Was ich kann — und woran ich arbeite."
-	lead="Skills aus beiden Ausbildungen. Die Levels folgen der Skala aus meinem offiziellen Lebenslauf."
+	id="a-skills"
+	num="03"
+	title="Skills"
+	lead="Skills aus beiden Ausbildungen. Die Levels folgen der Skala aus meinem offiziellen Lebenslauf — L1 Grundkenntnisse bis L5 Experte."
 >
-	<div class="flex flex-wrap gap-2 pb-8">
-		{#each skillCategories as cat (cat.id)}
-			<button
-				type="button"
-				onclick={() => (active = cat.id)}
-				class="rounded-full border px-4 py-2 text-sm transition-colors"
-				style:border-color={active === cat.id ? 'var(--accent)' : 'var(--border)'}
-				style:color={active === cat.id ? 'var(--accent)' : 'var(--text-muted)'}
-				style:background={active === cat.id ? 'var(--accent-soft)' : 'transparent'}
-			>
-				{cat.title}
-			</button>
-		{/each}
-	</div>
-
-	<p class="mb-6 text-sm" style:color="var(--text-muted)">{current.description}</p>
-
-	<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group data-reveal-step="55">
-		{#each current.skills as skill (skill.name)}
-			<div
-				class="tilt-card group flex flex-col gap-3 rounded-xl border p-4"
-				style:border-color="var(--border)"
-				style:background="var(--surface-muted)"
-			>
-				<div class="flex items-center justify-between gap-2">
-					<span class="font-medium">{skill.name}</span>
-					<span
-						class="rounded-md px-2 py-0.5 font-mono text-xs"
-						style:background="var(--accent-soft)"
-						style:color="var(--accent)"
+	<div class="grid gap-x-16 min-[900px]:grid-cols-2">
+		{#each skillCategories as g (g.id)}
+			<div class="mb-11">
+				<h3
+					class="flex items-baseline justify-between border-b border-line-strong pb-2.5 font-mono text-xs font-medium tracking-[0.1em]"
+				>
+					{g.title.toUpperCase()}<span class="text-muted"
+						>{String(g.skills.length).padStart(2, '0')}</span
 					>
-						L{skill.level}
-					</span>
-				</div>
-				<div class="flex gap-1" aria-label="Level {skill.level} von 5">
-					{#each [1, 2, 3, 4, 5] as n (n)}
-						<span
-							class="h-1 flex-1 rounded-full"
-							style:background={n <= skill.level ? 'var(--accent)' : 'var(--border)'}
-						></span>
+				</h3>
+				<ul>
+					{#each g.skills as s (s.name)}
+						<li class="flex items-baseline gap-3 border-b border-line py-2 text-sm">
+							<span class="font-medium">{s.name}</span>
+							<span class="flex-1 -translate-y-1 border-b border-dotted border-line-strong"></span>
+							<span class="flex items-center gap-[3px]" aria-hidden="true">
+								{#each ticks as t (t)}
+									<span class="h-1 w-2.5 {t <= s.level ? 'bg-copper' : 'bg-line-strong'}"></span>
+								{/each}
+							</span>
+							<span class="w-[22px] text-right font-mono text-xs text-muted">L{s.level}</span>
+						</li>
 					{/each}
-				</div>
-				<span class="text-xs" style:color="var(--text-muted)">{skillLegend[skill.level]}</span>
+				</ul>
 			</div>
 		{/each}
 	</div>
 
-	<div class="mt-16 grid gap-8 md:grid-cols-2">
+	<div class="mt-2 grid gap-x-16 gap-y-11 min-[900px]:grid-cols-2">
 		<div>
-			<h3
-				class="mb-4 text-sm font-semibold tracking-wider uppercase"
-				style:color="var(--text-muted)"
-			>
-				Sprachen
+			<h3 class="border-b border-line-strong pb-2.5 font-mono text-xs font-medium tracking-[0.1em]">
+				SPRACHEN
 			</h3>
-			<ul class="flex flex-col gap-2" data-reveal-group data-reveal-step="50">
-				{#each languages as lang (lang.name)}
-					<li
-						class="tilt-card flex items-center justify-between rounded-lg border p-3 text-sm"
-						style:border-color="var(--border)"
-						style:background="var(--surface-muted)"
-					>
-						<span class="font-medium">{lang.name}</span>
-						<span style:color="var(--text-muted)">{lang.level}</span>
+			<ul>
+				{#each languages as l (l.name)}
+					<li class="flex justify-between gap-3 border-b border-line py-2 text-sm">
+						<span class="font-medium">{l.name}</span>
+						<span class="text-right font-mono text-xs text-muted">{l.level.toUpperCase()}</span>
 					</li>
 				{/each}
 			</ul>
 		</div>
-
 		<div>
-			<h3
-				class="mb-4 text-sm font-semibold tracking-wider uppercase"
-				style:color="var(--text-muted)"
-			>
-				Interessenschwerpunkte
+			<h3 class="border-b border-line-strong pb-2.5 font-mono text-xs font-medium tracking-[0.1em]">
+				INTERESSENSCHWERPUNKTE
 			</h3>
-			<ul class="flex flex-col gap-3" data-reveal-group data-reveal-step="60">
-				{#each interestAreas as area (area.priority)}
-					<li
-						class="tilt-card rounded-lg border p-4"
-						style:border-color="var(--border)"
-						style:background="var(--surface-muted)"
-					>
-						<div class="flex items-center gap-3">
-							<span
-								class="flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold"
-								style:background="var(--accent-soft)"
-								style:color="var(--accent)"
-							>
-								#{area.priority}
-							</span>
-							<span class="font-medium">{area.title}</span>
-						</div>
-						<p class="mt-2 text-sm leading-relaxed" style:color="var(--text-muted)">
-							{area.description}
+			<ol>
+				{#each interestAreas as i (i.priority)}
+					<li class="border-b border-line py-3">
+						<p class="text-sm font-semibold">
+							<span class="mr-2.5 font-mono text-copper">{i.priority}</span>{i.title}
 						</p>
+						<p class="mt-1.5 ml-[26px] text-[13px] leading-[1.6] text-muted">{i.description}</p>
 					</li>
 				{/each}
-			</ul>
+			</ol>
 		</div>
 	</div>
 </Section>
