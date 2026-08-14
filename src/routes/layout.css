@@ -1,99 +1,77 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-@import '@fontsource/fira-mono';
+@import '@fontsource/archivo/400.css';
+@import '@fontsource/archivo/500.css';
+@import '@fontsource/archivo/600.css';
+@import '@fontsource/archivo/700.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-	--font-sans:
-		'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
-		sans-serif;
-	--font-mono: 'Fira Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-	--color-ink-50: #f5f6fa;
-	--color-ink-100: #e6e8f0;
-	--color-ink-200: #c2c6d6;
-	--color-ink-300: #8a90a8;
-	--color-ink-400: #5c6178;
-	--color-ink-500: #3b3f52;
-	--color-ink-600: #2a2d3c;
-	--color-ink-700: #1c1e2a;
-	--color-ink-800: #14161f;
-	--color-ink-900: #3b133531;
-
-	--color-accent-400: #8ab4ff;
-	--color-accent-500: #7f00ff;
-	--color-accent-600: #9d00ff;
-
-	--color-highlight: #7cf5c1;
+	/* Utility hooks (bg-paper, text-ink, border-line, text-copper, …).
+	   They point at runtime vars so `.dark` flips them without extra classes. */
+	--color-paper: var(--paper);
+	--color-card: var(--card);
+	--color-ink: var(--ink);
+	--color-muted: var(--muted);
+	--color-line: var(--line);
+	--color-line-strong: var(--line-strong);
+	--color-copper: var(--copper);
+	--color-copper-soft: var(--copper-soft);
 }
 
 :root {
-	color-scheme: light dark;
-	--surface: var(--color-ink-50);
-	--surface-muted: #ffffff;
-	--surface-elevated: #ffffff;
-	--border: #e2e4ed;
-	--text: var(--color-ink-800);
-	--text-muted: var(--color-ink-400);
-	--accent: var(--color-accent-600);
-	--accent-soft: rgba(127, 0, 255, 0.12);
-	--highlight: #12aff2;
-	--ring: rgba(127, 0, 255, 0.35);
+	color-scheme: light;
+	--paper: #fafaf7;
+	--ink: #171614;
+	--muted: #6e6b64;
+	--line: #e2dfd7;
+	--line-strong: #c9c5ba;
+	--copper: #b45309;
+	--copper-soft: rgba(180, 83, 9, 0.09);
+	--card: #ffffff;
 }
 
 :root.dark {
 	color-scheme: dark;
-	--surface: var(--color-ink-900);
-	--surface-muted: var(--color-ink-800);
-	--surface-elevated: var(--color-ink-700);
-	--border: rgba(118, 118, 118, 0.304);
-	--text: var(--color-ink-50);
-	--text-muted: var(--color-ink-300);
-	--accent: var(--color-accent-400);
-	--accent-soft: rgba(127, 0, 255, 0.12);
-	--highlight: #9000ff;
-	--ring: rgba(127, 0, 255, 0.35);
+	--paper: #151412;
+	--ink: #edebe6;
+	--muted: #8f8b82;
+	--line: #2c2a26;
+	--line-strong: #403d37;
+	--copper: #d9803e;
+	--copper-soft: rgba(217, 128, 62, 0.12);
+	--card: #1b1a17;
 }
 
 html {
 	scroll-behavior: smooth;
-	scroll-padding-top: 5rem;
+	scroll-padding-top: 4.5rem;
+}
+
+@media (min-width: 900px) {
+	html {
+		scroll-padding-top: 1.5rem;
+	}
 }
 
 body {
 	min-height: 100vh;
 	margin: 0;
 	font-family: var(--font-sans);
-	background: var(--surface);
-	color: var(--text);
+	background: var(--paper);
+	color: var(--ink);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	transition:
 		background-color 0.3s ease,
 		color 0.3s ease;
-}
-
-body::before {
-	content: '';
-	position: fixed;
-	inset: 0;
-	z-index: -1;
-	pointer-events: none;
-	background:
-		radial-gradient(800px 400px at 10% -10%, var(--accent-soft), transparent 60%),
-		radial-gradient(600px 300px at 90% 10%, rgba(97, 250, 184, 0.08), transparent 60%);
-	animation: bg-drift 24s ease-in-out infinite alternate;
-}
-
-@keyframes bg-drift {
-	0% {
-		transform: translate3d(0, 0, 0) scale(1);
-	}
-	100% {
-		transform: translate3d(-2%, 1.5%, 0) scale(1.05);
-	}
 }
 
 a {
@@ -102,103 +80,49 @@ a {
 }
 
 *:focus-visible {
-	outline: 2px solid var(--accent);
+	outline: 2px solid var(--copper);
 	outline-offset: 2px;
-	border-radius: 4px;
 }
 
 ::selection {
-	background: var(--accent);
-	color: white;
+	background: var(--copper);
+	color: #fff;
 }
 
-/* Scroll progress indicator: fixed bar at the top of the viewport that fills
-   based on the document scroll position. Uses scroll-driven animations where
-   supported and falls back to a static (invisible) element otherwise. */
-.scroll-progress {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 3px;
-	width: 100%;
-	transform-origin: 0 50%;
-	transform: scaleX(0);
-	background: linear-gradient(90deg, var(--accent), var(--highlight));
-	z-index: 50;
-	pointer-events: none;
-	box-shadow: 0 0 12px var(--ring);
+/* Spec-sheet row hover (dl rows, education rows, lab/notes rows). */
+.spec-row {
+	transition: background-color 0.25s ease;
+}
+.spec-row:hover {
+	background: var(--copper-soft);
 }
 
-@supports (animation-timeline: scroll()) {
-	.scroll-progress {
-		animation: scroll-progress linear;
-		animation-timeline: scroll(root);
+/* Circuit-trace dash flow in the profile section's SVG. */
+@keyframes pulseflow {
+	0% {
+		stroke-dashoffset: 0;
 	}
-	@keyframes scroll-progress {
-		from {
-			transform: scaleX(0);
-		}
-		to {
-			transform: scaleX(1);
-		}
+	100% {
+		stroke-dashoffset: -240;
 	}
+}
+.pulseflow {
+	animation: pulseflow 5s linear infinite;
 }
 
 .reveal {
 	opacity: 0;
-	transform: translate3d(0, 24px, 0) scale(0.985);
-	filter: blur(2px);
+	transform: translate3d(0, 18px, 0);
 	transition:
-		opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-		transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-		filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+		opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+		transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 	transition-delay: var(--reveal-delay, 0ms);
-	will-change: opacity, transform, filter;
+	will-change: opacity, transform;
 }
 
 .reveal.is-visible {
 	opacity: 1;
 	transform: none;
-	filter: none;
-}
-
-/* Interactive card surface: subtle lift, accent border tint and a soft glow
-   on hover. Combine with `data-reveal` for entry animation. */
-.tilt-card {
-	position: relative;
-	transition:
-		transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-		border-color 0.3s ease,
-		box-shadow 0.45s ease,
-		background-color 0.3s ease;
-	will-change: transform;
-}
-
-.tilt-card::after {
-	content: '';
-	position: absolute;
-	inset: 0;
-	border-radius: inherit;
-	pointer-events: none;
-	opacity: 0;
-	transition: opacity 0.45s ease;
-	background: radial-gradient(
-		400px circle at var(--mx, 50%) var(--my, 0%),
-		var(--accent-soft),
-		transparent 60%
-	);
-}
-
-.tilt-card:hover {
-	transform: translate3d(0, -4px, 0);
-	border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
-	box-shadow:
-		0 12px 30px -18px var(--ring),
-		0 2px 6px -2px rgba(0, 0, 0, 0.08);
-}
-
-.tilt-card:hover::after {
-	opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -208,15 +132,9 @@ a {
 	.reveal {
 		opacity: 1;
 		transform: none;
-		filter: none;
 		transition: none;
 	}
-	.tilt-card,
-	.tilt-card:hover {
-		transform: none;
-		box-shadow: none;
-	}
-	body::before {
+	.pulseflow {
 		animation: none;
 	}
 	* {
