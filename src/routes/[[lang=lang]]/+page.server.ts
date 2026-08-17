@@ -27,9 +27,9 @@ export const actions: Actions = {
 			return fail(400, { error: t.message, values });
 		}
 
-		if (!env.SENDWITH_API_KEY || !env.CONTACT_TO_EMAIL || !env.CONTACT_FROM_EMAIL) {
+		if (!env.RESEND_API_KEY || !env.CONTACT_TO_EMAIL || !env.CONTACT_FROM_EMAIL) {
 			console.error('[contact] missing env var', {
-				SENDWITH_API_KEY: !!env.SENDWITH_API_KEY,
+				RESEND_API_KEY: !!env.RESEND_API_KEY,
 				CONTACT_TO_EMAIL: !!env.CONTACT_TO_EMAIL,
 				CONTACT_FROM_EMAIL: !!env.CONTACT_FROM_EMAIL,
 				availableKeys: Object.keys(env).filter((k) => k.includes('SEND') || k.includes('CONTACT'))
@@ -37,20 +37,18 @@ export const actions: Actions = {
 			return fail(500, { error: t.server, values });
 		}
 
-		const response = await fetch('https://app.sendwith.email/api/send', {
+		const response = await fetch('https://api.resend.com/emails', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${env.SENDWITH_API_KEY}`
+				Authorization: `Bearer ${env.RESEND_API_KEY}`
 			},
 			body: JSON.stringify({
-				message: {
-					to: [{ email: env.CONTACT_TO_EMAIL }],
-					from: { email: env.CONTACT_FROM_EMAIL },
-					replyTo: [{ email }],
-					subject: `Neue Kontaktanfrage von ${name}`,
-					body: `Name: ${name}\nE-Mail: ${email}\n\n${message}`
-				}
+				from: `Kontaktformular <${env.CONTACT_FROM_EMAIL}>`,
+				to: [env.CONTACT_TO_EMAIL],
+				reply_to: email,
+				subject: `Neue Kontaktanfrage von ${name}`,
+				text: `Name: ${name}\nE-Mail: ${email}\n\n${message}`
 			})
 		});
 
